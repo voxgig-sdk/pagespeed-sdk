@@ -1,0 +1,142 @@
+# Entity: run_pagespeed
+
+main: kit: entity: run_pagespeed: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "analysis_utc_timestamp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "captcha_result"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "kind"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lighthouse_result"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "loading_experience"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "origin_loading_experience"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "version"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "run_pagespeed"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "captcha_token"
+                orig: "captcha_token"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "category"
+                orig: "category"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "locale"
+                orig: "locale"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "DESKTOP"
+                kind: "query"
+                name: "strategy"
+                orig: "strategy"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "url"
+                orig: "url"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "utm_campaign"
+                orig: "utm_campaign"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "utm_source"
+                orig: "utm_source"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/runPagespeed"
+          parts: [
+            "runPagespeed"
+          ]
+          select: {
+            exist: [
+              "captcha_token"
+              "category"
+              "locale"
+              "strategy"
+              "url"
+              "utm_campaign"
+              "utm_source"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

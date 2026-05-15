@@ -1,0 +1,28 @@
+# BasicRunPagespeedFlow
+
+main: kit: flow: BasicRunPagespeedFlow:
+{
+  entity: "run_pagespeed",
+  kind: "basic",
+  name: "BasicRunPagespeedFlow",
+  step: [
+    {
+      input: {
+        ref: "run_pagespeed_ref01",
+        srcdatavar: "run_pagespeed_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-run_pagespeed_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRunPagespeedFlow"
+}

@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Google for Developers"
+        url: "https://developers.google.com/speed/docs/insights/rest/v5/pagespeedapi/runpagespeed"
+      }
+      description: "Runs PageSpeed analysis on a specified URL, providing scores, suggestions for faster loading, and other data. Supports different categories, locales, and strategies."
+      servers: [
+        {
+          description: "PageSpeed Insights API v5"
+          url: "https://pagespeedonline.googleapis.com/pagespeedonline/v5"
+        }
+      ]
+      title: "PageSpeed Insights API"
+      version: "v5"
+    }
+  }
+}
+
+}
