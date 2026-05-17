@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/pagespeed-sdk"
-	"github.com/voxgig-sdk/pagespeed-sdk/core"
+	sdk "github.com/voxgig-sdk/pagespeed-sdk/go"
+	"github.com/voxgig-sdk/pagespeed-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/pagespeed-sdk/go/utility/struct"
 )
 
 func TestRunPagespeedEntity(t *testing.T) {

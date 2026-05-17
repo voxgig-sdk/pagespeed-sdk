@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: 'https://pagespeedonline.googleapis.com/pagespeedonline/v5',
+    base: '$$main.kit.info.servers.0.url$$',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

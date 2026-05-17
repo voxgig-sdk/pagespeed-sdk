@@ -1,9 +1,9 @@
 package utility
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/pagespeed-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/pagespeed-sdk/core"
+	"github.com/voxgig-sdk/pagespeed-sdk/go/core"
 )
 
 func transformResponseUtil(ctx *core.Context) any {

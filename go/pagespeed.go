@@ -1,10 +1,10 @@
 package voxgigpagespeedsdk
 
 import (
-	"github.com/voxgig-sdk/pagespeed-sdk/core"
-	"github.com/voxgig-sdk/pagespeed-sdk/entity"
-	"github.com/voxgig-sdk/pagespeed-sdk/feature"
-	_ "github.com/voxgig-sdk/pagespeed-sdk/utility"
+	"github.com/voxgig-sdk/pagespeed-sdk/go/core"
+	"github.com/voxgig-sdk/pagespeed-sdk/go/entity"
+	"github.com/voxgig-sdk/pagespeed-sdk/go/feature"
+	_ "github.com/voxgig-sdk/pagespeed-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

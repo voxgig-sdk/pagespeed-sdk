@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/pagespeed-sdk"
-	"github.com/voxgig-sdk/pagespeed-sdk/core"
+	sdk "github.com/voxgig-sdk/pagespeed-sdk/go"
+	"github.com/voxgig-sdk/pagespeed-sdk/go/core"
 )
 
 func TestRunPagespeedDirect(t *testing.T) {

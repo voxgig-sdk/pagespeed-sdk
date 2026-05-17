@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/pagespeed-sdk/core"
+	"github.com/voxgig-sdk/pagespeed-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/pagespeed-sdk/go/utility/struct"
 )
 
 type RunPagespeedEntity struct {

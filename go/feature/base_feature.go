@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/pagespeed-sdk/core"
+	"github.com/voxgig-sdk/pagespeed-sdk/go/core"
 )
 
 type BaseFeature struct {
