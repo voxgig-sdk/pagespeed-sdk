@@ -1,9 +1,96 @@
 # Pagespeed SDK
 
+Analyse any URL's web performance with Lighthouse audits and Chrome User Experience Report field data
 
+> TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-Available for [Golang](go/) and [Go CLI](go-cli/) and [Go MCP server](go-mcp/) and [Lua](lua/) and [PHP](php/) and [Python](py/) and [Ruby](rb/) and [TypeScript](ts/).
+## About PageSpeed Insights API
 
+The [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started) is a Google service that analyses a given web page and returns performance, accessibility, best-practices and SEO scores along with optimisation suggestions. It is the programmatic interface behind the public [PageSpeed Insights](https://pagespeed.web.dev/) tool.
+
+What you get from the API:
+
+- **Lighthouse lab audits** — Performance, Accessibility, Best Practices, SEO, and PWA category scores plus per-audit details (Speed Index, Largest Contentful Paint, Total Blocking Time, Time to Interactive, etc.).
+- **Chrome User Experience Report (CrUX) field data** — real-world metrics such as First Contentful Paint, First Input Delay and Interaction to Next Paint, with percentile distributions and FAST / AVERAGE / SLOW classifications.
+- Configurable `strategy` (`mobile` or `desktop`), `category` selection, and `locale` for localised audit text.
+
+The API is served from `https://pagespeedonline.googleapis.com/pagespeedonline/v5`. Requests can be made anonymously but an API key (`?key=...`) is recommended for repeated calls; Google notes the key is safe to embed in URLs. For CrUX-only data Google now recommends the dedicated CrUX API or CrUX History API.
+
+## Try it
+
+**TypeScript**
+```bash
+npm install pagespeed
+```
+
+**Python**
+```bash
+pip install pagespeed-sdk
+```
+
+**PHP**
+```bash
+composer require voxgig/pagespeed-sdk
+```
+
+**Golang**
+```bash
+go get github.com/voxgig-sdk/pagespeed-sdk/go
+```
+
+**Ruby**
+```bash
+gem install pagespeed-sdk
+```
+
+**Lua**
+```bash
+luarocks install pagespeed-sdk
+```
+
+## 30-second quickstart
+
+### TypeScript
+
+```ts
+import { PagespeedSDK } from 'pagespeed'
+
+const client = new PagespeedSDK({})
+
+```
+
+See the [TypeScript README](ts/README.md) for the
+full guide, or scroll down for the same example in other languages.
+
+## What's in the box
+
+| Surface | Use it for | Path |
+| --- | --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
+| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+
+## Use it from an AI agent (MCP)
+
+The generated MCP server exposes every operation in this SDK as an
+[MCP](https://modelcontextprotocol.io) tool that Claude, Cursor or Cline
+can call directly. Build and register it:
+
+```bash
+cd go-mcp && go build -o pagespeed-mcp .
+```
+
+Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
+
+```json
+{
+  "mcpServers": {
+    "pagespeed": {
+      "command": "/abs/path/to/pagespeed-mcp"
+    }
+  }
+}
+```
 
 ## Entities
 
@@ -11,75 +98,24 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **RunPagespeed** |  | `/runPagespeed` |
+| **RunPagespeed** | Runs a PageSpeed analysis against a target URL and returns Lighthouse audits plus CrUX field data — `GET /runPagespeed`. | `/runPagespeed` |
 
-Each entity supports the following operations where available: **load**, **list**, **create**,
-**update**, and **remove**.
+Each entity supports the following operations where available: **load**,
+**list**, **create**, **update**, and **remove**.
 
+## Quickstart in other languages
 
-## Architecture
+### Python
 
-### Entity-operation model
+```python
+from pagespeed_sdk import PagespeedSDK
 
-Every SDK call follows the same pipeline:
-
-1. **Point** — resolve the API endpoint from the operation definition.
-2. **Spec** — build the HTTP specification (URL, method, headers, body).
-3. **Request** — send the HTTP request.
-4. **Response** — receive and parse the response.
-5. **Result** — extract the result data for the caller.
-
-At each stage a feature hook fires (e.g. `PrePoint`, `PreSpec`,
-`PreRequest`), allowing features to inspect or modify the pipeline.
-
-### Features
-
-Features are hook-based middleware that extend SDK behaviour.
-
-| Feature | Purpose |
-| --- | --- |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-
-You can add custom features by passing them in the `extend` option at
-construction time.
-
-### Direct and Prepare
-
-For endpoints not covered by the entity model, use the low-level methods:
-
-- **`direct(fetchargs)`** — build and send an HTTP request in one step.
-- **`prepare(fetchargs)`** — build the request without sending it.
-
-Both accept a map with `path`, `method`, `params`, `query`, `headers`,
-and `body`.
+client = PagespeedSDK({})
 
 
-## Quick start
-
-### Golang
-
-```go
-import sdk "github.com/voxgig-sdk/pagespeed-sdk/go"
-
-client := sdk.NewPagespeedSDK(map[string]any{
-    "apikey": os.Getenv("PAGESPEED_APIKEY"),
-})
-
-```
-
-### Lua
-
-```lua
-local sdk = require("pagespeed_sdk")
-
-local client = sdk.new({
-  apikey = os.getenv("PAGESPEED_APIKEY"),
-})
-
-
--- Load a specific runpagespeed
-local runpagespeed, err = client:RunPagespeed(nil):load(
-  { id = "example_id" }, nil
+# Load a specific runpagespeed
+runpagespeed, err = client.RunPagespeed(None).load(
+    {"id": "example_id"}, None
 )
 ```
 
@@ -89,9 +125,7 @@ local runpagespeed, err = client:RunPagespeed(nil):load(
 <?php
 require_once 'pagespeed_sdk.php';
 
-$client = new PagespeedSDK([
-    "apikey" => getenv("PAGESPEED_APIKEY"),
-]);
+$client = new PagespeedSDK([]);
 
 
 // Load a specific runpagespeed
@@ -100,21 +134,13 @@ $client = new PagespeedSDK([
 );
 ```
 
-### Python
+### Golang
 
-```python
-import os
-from pagespeed_sdk import PagespeedSDK
+```go
+import sdk "github.com/voxgig-sdk/pagespeed-sdk/go"
 
-client = PagespeedSDK({
-    "apikey": os.environ.get("PAGESPEED_APIKEY"),
-})
+client := sdk.NewPagespeedSDK(map[string]any{})
 
-
-# Load a specific runpagespeed
-runpagespeed, err = client.RunPagespeed(None).load(
-    {"id": "example_id"}, None
-)
 ```
 
 ### Ruby
@@ -122,9 +148,7 @@ runpagespeed, err = client.RunPagespeed(None).load(
 ```ruby
 require_relative "Pagespeed_sdk"
 
-client = PagespeedSDK.new({
-  "apikey" => ENV["PAGESPEED_APIKEY"],
-})
+client = PagespeedSDK.new({})
 
 
 # Load a specific runpagespeed
@@ -133,38 +157,39 @@ runpagespeed, err = client.RunPagespeed(nil).load(
 )
 ```
 
-### TypeScript
-
-```ts
-import { PagespeedSDK } from 'pagespeed'
-
-const client = new PagespeedSDK({
-  apikey: process.env.PAGESPEED_APIKEY,
-})
-
-```
-
-
-## Testing
-
-Both SDKs provide a test mode that replaces the HTTP transport with an
-in-memory mock, so tests run without a network connection.
-
-### Golang
-
-```go
-client := sdk.TestSDK(nil, nil)
-result, err := client.RunPagespeed(nil).Load(
-    map[string]any{"id": "test01"}, nil,
-)
-```
-
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:RunPagespeed(nil):load(
-  { id = "test01" }, nil
+local sdk = require("pagespeed_sdk")
+
+local client = sdk.new({})
+
+
+-- Load a specific runpagespeed
+local runpagespeed, err = client:RunPagespeed(nil):load(
+  { id = "example_id" }, nil
+)
+```
+
+## Unit testing in offline mode
+
+Every SDK ships a test mode that swaps the HTTP transport for an
+in-memory mock, so unit tests run offline.
+
+### TypeScript
+
+```ts
+const client = PagespeedSDK.test()
+const result = await client.RunPagespeed().load({ id: 'test01' })
+// result.ok === true, result.data contains mock data
+```
+
+### Python
+
+```python
+client = PagespeedSDK.test(None, None)
+result, err = client.RunPagespeed(None).load(
+    {"id": "test01"}, None
 )
 ```
 
@@ -177,12 +202,12 @@ $client = PagespeedSDK::test(null, null);
 );
 ```
 
-### Python
+### Golang
 
-```python
-client = PagespeedSDK.test(None, None)
-result, err = client.RunPagespeed(None).load(
-    {"id": "test01"}, None
+```go
+client := sdk.TestSDK(nil, nil)
+result, err := client.RunPagespeed(nil).Load(
+    map[string]any{"id": "test01"}, nil,
 )
 ```
 
@@ -195,14 +220,46 @@ result, err = client.RunPagespeed(nil).load(
 )
 ```
 
-### TypeScript
+### Lua
 
-```ts
-const client = PagespeedSDK.test()
-const result = await client.RunPagespeed().load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+```lua
+local client = sdk.test(nil, nil)
+local result, err = client:RunPagespeed(nil):load(
+  { id = "test01" }, nil
+)
 ```
 
+## How it works
+
+Every SDK call runs the same five-stage pipeline:
+
+1. **Point** — resolve the API endpoint from the operation definition.
+2. **Spec** — build the HTTP specification (URL, method, headers, body).
+3. **Request** — send the HTTP request.
+4. **Response** — receive and parse the response.
+5. **Result** — extract the result data for the caller.
+
+A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
+`PreRequest`), so features can inspect or modify the pipeline without
+forking the SDK.
+
+### Features
+
+| Feature | Purpose |
+| --- | --- |
+| **TestFeature** | In-memory mock transport for testing without a live server |
+
+Pass custom features via the `extend` option at construction time.
+
+### Direct and Prepare
+
+For endpoints the entity model doesn't cover, use the low-level methods:
+
+- **`direct(fetchargs)`** — build and send an HTTP request in one step.
+- **`prepare(fetchargs)`** — build the request without sending it.
+
+Both accept a map with `path`, `method`, `params`, `query`,
+`headers`, and `body`. See the [How-to guides](#how-to-guides) below.
 
 ## How-to guides
 
@@ -210,21 +267,22 @@ const result = await client.RunPagespeed().load({ id: 'test01' })
 
 When the entity interface does not cover an endpoint, use `direct`:
 
-**Go:**
-```go
-result, err := client.Direct(map[string]any{
-    "path":   "/api/resource/{id}",
-    "method": "GET",
-    "params": map[string]any{"id": "example"},
+**TypeScript:**
+```ts
+const result = await client.direct({
+  path: '/api/resource/{id}',
+  method: 'GET',
+  params: { id: 'example' },
 })
+console.log(result.data)
 ```
 
-**Lua:**
-```lua
-local result, err = client:direct({
-  path = "/api/resource/{id}",
-  method = "GET",
-  params = { id = "example" },
+**Python:**
+```python
+result, err = client.direct({
+    "path": "/api/resource/{id}",
+    "method": "GET",
+    "params": {"id": "example"},
 })
 ```
 
@@ -237,12 +295,12 @@ local result, err = client:direct({
 ]);
 ```
 
-**Python:**
-```python
-result, err = client.direct({
-    "path": "/api/resource/{id}",
+**Go:**
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
     "method": "GET",
-    "params": {"id": "example"},
+    "params": map[string]any{"id": "example"},
 })
 ```
 
@@ -255,25 +313,34 @@ result, err = client.direct({
 })
 ```
 
-**TypeScript:**
-```ts
-const result = await client.direct({
-  path: '/api/resource/{id}',
-  method: 'GET',
-  params: { id: 'example' },
+**Lua:**
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example" },
 })
-console.log(result.data)
 ```
 
+## Per-language documentation
 
-## Language-specific documentation
+- [TypeScript](ts/README.md)
+- [Python](py/README.md)
+- [PHP](php/README.md)
+- [Golang](go/README.md)
+- [Ruby](rb/README.md)
+- [Lua](lua/README.md)
 
-- [Golang SDK](go/README.md)
-- [Go CLI SDK](go-cli/README.md)
-- [Go MCP server SDK](go-mcp/README.md)
-- [Lua SDK](lua/README.md)
-- [PHP SDK](php/README.md)
-- [Python SDK](py/README.md)
-- [Ruby SDK](rb/README.md)
-- [TypeScript SDK](ts/README.md)
+## Using the PageSpeed Insights API
 
+- Upstream: [https://developers.google.com/speed/docs/insights/v5/get-started](https://developers.google.com/speed/docs/insights/v5/get-started)
+- API docs: [https://developers.google.com/speed/docs/insights/rest/v5/pagespeedapi/runpagespeed](https://developers.google.com/speed/docs/insights/rest/v5/pagespeedapi/runpagespeed)
+
+- Documentation content is published by Google under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/).
+- Code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
+- Use of the API itself is governed by the [Google APIs Terms of Service](https://developers.google.com/terms/).
+- An API key (from the Google Cloud Console) is recommended for frequent or automated queries.
+
+---
+
+Generated from the PageSpeed Insights API OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).

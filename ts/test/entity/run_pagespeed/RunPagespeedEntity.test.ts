@@ -114,7 +114,6 @@ function basicSetup(extra?: any) {
     'PAGESPEED_TEST_RUN_PAGESPEED_ENTID': idmap,
     'PAGESPEED_TEST_LIVE': 'FALSE',
     'PAGESPEED_TEST_EXPLAIN': 'FALSE',
-    'PAGESPEED_APIKEY': 'NONE',
   })
 
   idmap = env['PAGESPEED_TEST_RUN_PAGESPEED_ENTID']
@@ -124,7 +123,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new PagespeedSDK(merge([
       {
-        apikey: env.PAGESPEED_APIKEY,
       },
       extra
     ]))

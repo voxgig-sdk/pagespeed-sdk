@@ -99,14 +99,12 @@ func run_pagespeedDirectSetup(mockres any) *run_pagespeedDirectSetupResult {
 	env := envOverride(map[string]any{
 		"PAGESPEED_TEST_RUN_PAGESPEED_ENTID": map[string]any{},
 		"PAGESPEED_TEST_LIVE":    "FALSE",
-		"PAGESPEED_APIKEY":       "NONE",
 	})
 
 	live := env["PAGESPEED_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["PAGESPEED_APIKEY"],
 		}
 		client := sdk.NewPagespeedSDK(mergedOpts)
 

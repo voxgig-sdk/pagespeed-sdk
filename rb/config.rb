@@ -15,9 +15,6 @@ module PagespeedConfig
       },
       "options" => {
         "base" => "https://pagespeedonline.googleapis.com/pagespeedonline/v5",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
