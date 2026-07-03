@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'PAGESPEED_TEST_RUN_PAGESPEED_ENTID': {},
     'PAGESPEED_TEST_LIVE': 'FALSE',
+    'PAGESPEED_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.PAGESPEED_TEST_LIVE
 
   if (live) {
     const client = new PagespeedSDK({
+      apikey: env.PAGESPEED_APIKEY,
     })
 
     let idmap: any = env['PAGESPEED_TEST_RUN_PAGESPEED_ENTID']

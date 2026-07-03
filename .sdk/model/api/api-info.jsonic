@@ -17,27 +17,7 @@ main: {
       ]
       title: "PageSpeed Insights API"
       version: "v5"
-      tagline: "Analyse any URL's web performance with Lighthouse audits and Chrome User Experience Report field data"
-      homepage: "https://developers.google.com/speed/docs/insights/v5/get-started"
-      docs_url: "https://developers.google.com/speed/docs/insights/rest/v5/pagespeedapi/runpagespeed"
-      license_short: "Google API — content under CC BY 4.0, code samples under Apache 2.0; subject to Google APIs Terms of Service"
-      license_md: `- Documentation content is published by Google under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/).
-- Code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
-- Use of the API itself is governed by the [Google APIs Terms of Service](https://developers.google.com/terms/).
-- An API key (from the Google Cloud Console) is recommended for frequent or automated queries.`
-      about_md: `The [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started) is a Google service that analyses a given web page and returns performance, accessibility, best-practices and SEO scores along with optimisation suggestions. It is the programmatic interface behind the public [PageSpeed Insights](https://pagespeed.web.dev/) tool.
-
-What you get from the API:
-
-- **Lighthouse lab audits** — Performance, Accessibility, Best Practices, SEO, and PWA category scores plus per-audit details (Speed Index, Largest Contentful Paint, Total Blocking Time, Time to Interactive, etc.).
-- **Chrome User Experience Report (CrUX) field data** — real-world metrics such as First Contentful Paint, First Input Delay and Interaction to Next Paint, with percentile distributions and FAST / AVERAGE / SLOW classifications.
-- Configurable \`strategy\` (\`mobile\` or \`desktop\`), \`category\` selection, and \`locale\` for localised audit text.
-
-The API is served from \`https://pagespeedonline.googleapis.com/pagespeedonline/v5\`. Requests can be made anonymously but an API key (\`?key=...\`) is recommended for repeated calls; Google notes the key is safe to embed in URLs. For CrUX-only data Google now recommends the dedicated CrUX API or CrUX History API.`
-      entity_desc: {
-        run_pagespeed: "Runs a PageSpeed analysis against a target URL and returns Lighthouse audits plus CrUX field data — `GET /runPagespeed`."
-      }
-      auth: false
     }
   }
 }
+

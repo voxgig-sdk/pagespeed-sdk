@@ -123,6 +123,7 @@ func run_pagespeedBasicSetup(extra map[string]any) *entityTestSetup {
 		"PAGESPEED_TEST_RUN_PAGESPEED_ENTID": idmap,
 		"PAGESPEED_TEST_LIVE":      "FALSE",
 		"PAGESPEED_TEST_EXPLAIN":   "FALSE",
+		"PAGESPEED_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["PAGESPEED_TEST_RUN_PAGESPEED_ENTID"])
@@ -133,6 +134,7 @@ func run_pagespeedBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["PAGESPEED_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["PAGESPEED_APIKEY"],
 			},
 			extra,
 		})

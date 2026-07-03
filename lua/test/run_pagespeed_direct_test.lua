@@ -62,12 +62,14 @@ function run_pagespeed_direct_setup(mockres)
   local env = runner.env_override({
     ["PAGESPEED_TEST_RUN_PAGESPEED_ENTID"] = {},
     ["PAGESPEED_TEST_LIVE"] = "FALSE",
+    ["PAGESPEED_APIKEY"] = "NONE",
   })
 
   local live = env["PAGESPEED_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["PAGESPEED_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

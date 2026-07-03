@@ -95,6 +95,7 @@ def _run_pagespeed_basic_setup(extra):
         "PAGESPEED_TEST_RUN_PAGESPEED_ENTID": idmap,
         "PAGESPEED_TEST_LIVE": "FALSE",
         "PAGESPEED_TEST_EXPLAIN": "FALSE",
+        "PAGESPEED_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -105,6 +106,7 @@ def _run_pagespeed_basic_setup(extra):
     if env.get("PAGESPEED_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("PAGESPEED_APIKEY"),
             },
             extra or {},
         ])

@@ -95,6 +95,7 @@ function run_pagespeed_basic_setup(extra)
     ["PAGESPEED_TEST_RUN_PAGESPEED_ENTID"] = idmap,
     ["PAGESPEED_TEST_LIVE"] = "FALSE",
     ["PAGESPEED_TEST_EXPLAIN"] = "FALSE",
+    ["PAGESPEED_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -106,6 +107,7 @@ function run_pagespeed_basic_setup(extra)
   if env["PAGESPEED_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["PAGESPEED_APIKEY"],
       },
       extra or {},
     })

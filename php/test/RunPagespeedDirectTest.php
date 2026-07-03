@@ -67,12 +67,14 @@ function run_pagespeed_direct_setup($mockres)
     $env = Runner::env_override([
         "PAGESPEED_TEST_RUN_PAGESPEED_ENTID" => [],
         "PAGESPEED_TEST_LIVE" => "FALSE",
+        "PAGESPEED_APIKEY" => "NONE",
     ]);
 
     $live = $env["PAGESPEED_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["PAGESPEED_APIKEY"],
         ];
         $client = new PagespeedSDK($merged_opts);
         return [
