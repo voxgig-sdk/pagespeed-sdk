@@ -10,7 +10,7 @@ The Lua SDK for the Pagespeed API — an entity-oriented client using Lua conven
 
 ## Install
 ```bash
-luarocks install pagespeed-sdk
+luarocks install voxgig-sdk-pagespeed
 ```
 
 If the module is not yet published, add the source directory to

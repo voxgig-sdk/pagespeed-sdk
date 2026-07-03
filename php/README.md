@@ -10,7 +10,7 @@ The PHP SDK for the Pagespeed API — an entity-oriented client using PHP conven
 
 ## Install
 ```bash
-composer require voxgig/pagespeed-sdk
+composer require voxgig-sdk/pagespeed
 ```
 
 

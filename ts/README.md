@@ -10,7 +10,7 @@ The TypeScript SDK for the Pagespeed API — a type-safe, entity-oriented client
 
 ## Install
 ```bash
-npm install pagespeed
+npm install @voxgig-sdk/pagespeed
 ```
 ## Tutorial: your first API call
 

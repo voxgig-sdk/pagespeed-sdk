@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/pagespeed",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the PageSpeed Insights public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "pagespeed"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/pagespeed-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/pagespeed-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/pagespeed-sdk/issues"
+  },
   "main": "dist/PagespeedSDK.js",
   "type": "commonjs",
   "types": "dist/PagespeedSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "Pagespeed",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

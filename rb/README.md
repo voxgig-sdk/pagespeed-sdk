@@ -10,13 +10,13 @@ The Ruby SDK for the Pagespeed API — an entity-oriented client using idiomatic
 
 ## Install
 ```bash
-gem install pagespeed-sdk
+gem install voxgig-sdk-pagespeed
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "pagespeed-sdk"
+gem "voxgig-sdk-pagespeed"
 ```
 
 Then run:

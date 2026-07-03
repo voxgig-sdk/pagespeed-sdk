@@ -10,7 +10,7 @@ The Python SDK for the Pagespeed API — an entity-oriented client following Pyt
 
 ## Install
 ```bash
-pip install pagespeed-sdk
+pip install voxgig-sdk-pagespeed
 ```
 
 Or install from source:
