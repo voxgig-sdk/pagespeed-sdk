@@ -28,9 +28,9 @@ const client = new PagespeedSDK({
   apikey: process.env.PAGESPEED_APIKEY,
 })
 
-// Load runpagespeed data
-const runpagespeed = await client.runpagespeed.load({})
-console.log(runpagespeed.data)
+// Load runpagespeed data (returns a RunPagespeed)
+const runpagespeed = await client.RunPagespeed().load()
+console.log(runpagespeed)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -89,8 +89,8 @@ client = PagespeedSDK({
 })
 
 
-# Load a specific runpagespeed
-runpagespeed = client.runpagespeed.load({"id": "example_id"})
+# Load a specific runpagespeed (returns the record, raises on error)
+runpagespeed = client.RunPagespeed().load({"id": "example_id"})
 print(runpagespeed)
 ```
 
@@ -105,8 +105,8 @@ $client = new PagespeedSDK([
 ]);
 
 
-// Load a specific runpagespeed
-$runpagespeed = $client->runpagespeed()->load(["id" => "example_id"]);
+// Load a specific runpagespeed (returns the bare record; throws on error)
+$runpagespeed = $client->RunPagespeed()->load(["id" => "example_id"]);
 print_r($runpagespeed);
 ```
 
@@ -134,8 +134,8 @@ client = PagespeedSDK.new({
 })
 
 
-# Load a specific runpagespeed
-runpagespeed = client.runpagespeed.load({ "id" => "example_id" })
+# Load a specific runpagespeed (returns the bare record; raises on error)
+runpagespeed = client.RunPagespeed.load({ "id" => "example_id" })
 puts runpagespeed
 ```
 
@@ -150,7 +150,7 @@ local client = sdk.new({
 
 
 -- Load a specific runpagespeed
-local runpagespeed, err = client:runpagespeed():load({ id = "example_id" })
+local runpagespeed, err = client:RunPagespeed():load({ id = "example_id" })
 print(runpagespeed)
 ```
 
@@ -163,22 +163,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = PagespeedSDK.test()
-const result = await client.runpagespeed.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const runpagespeed = await client.RunPagespeed().load({ id: 'test01' })
+// runpagespeed is a bare RunPagespeed populated with mock data
+console.log(runpagespeed)
 ```
 
 ### Python
 
 ```python
 client = PagespeedSDK.test()
-result = client.runpagespeed.load({"id": "test01"})
+runpagespeed = client.RunPagespeed().load({"id": "test01"})
+print(runpagespeed)
 ```
 
 ### PHP
 
 ```php
-$client = PagespeedSDK::test();
-$result = $client->runpagespeed()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = PagespeedSDK::test([
+    "entity" => ["runpagespeed" => ["test01" => ["id" => "test01"]]],
+]);
+$runpagespeed = $client->RunPagespeed()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -193,15 +198,18 @@ result, err := client.RunPagespeed(nil).Load(
 ### Ruby
 
 ```ruby
-client = PagespeedSDK.test
-result = client.runpagespeed.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = PagespeedSDK.test({
+  "entity" => { "runpagespeed" => { "test01" => { "id" => "test01" } } },
+})
+runpagespeed = client.RunPagespeed.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:runpagespeed():load({ id = "test01" })
+local result, err = client:RunPagespeed():load({ id = "test01" })
 ```
 
 ## How it works
@@ -249,6 +257,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

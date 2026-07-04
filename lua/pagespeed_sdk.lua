@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:run_pagespeed():list() / client:run_pagespeed():load({ id = ... })
-function PagespeedSDK:run_pagespeed(data)
+-- Idiomatic facade: client:RunPagespeed():list() / client:RunPagespeed():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function PagespeedSDK:RunPagespeed(data)
   local EntityMod = require("entity.run_pagespeed_entity")
   if data == nil then
     if self._run_pagespeed == nil then
@@ -253,12 +254,6 @@ function PagespeedSDK:run_pagespeed(data)
     end
     return self._run_pagespeed
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:run_pagespeed() instead.
-function PagespeedSDK:RunPagespeed(data)
-  local EntityMod = require("entity.run_pagespeed_entity")
   return EntityMod.new(self, data)
 end
 

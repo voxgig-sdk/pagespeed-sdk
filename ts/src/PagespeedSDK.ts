@@ -204,14 +204,7 @@ class PagespeedSDK {
 
 
 
-  _run_pagespeed?: RunPagespeedEntity
-
-  // Idiomatic facade: `client.run_pagespeed.list()` / `client.run_pagespeed.load({ id })`.
-  get run_pagespeed(): RunPagespeedEntity {
-    return (this._run_pagespeed ??= new RunPagespeedEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.run_pagespeed` instead. */
+  // Entity access: `client.RunPagespeed().list()` / `client.RunPagespeed().load({ id })`.
   RunPagespeed(data?: any) {
     const self = this
     return new RunPagespeedEntity(self,data)

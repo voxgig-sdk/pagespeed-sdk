@@ -233,10 +233,10 @@ class PagespeedSDK
 
     private $_run_pagespeed = null;
 
-    // Idiomatic facade: $client->run_pagespeed()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias RunPagespeed() (PHP method
-    // names are case-insensitive).
-    public function run_pagespeed($data = null)
+    // Canonical facade: $client->RunPagespeed()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->run_pagespeed()
+    // resolves here too.
+    public function RunPagespeed($data = null)
     {
         require_once __DIR__ . '/entity/run_pagespeed_entity.php';
         if ($data === null) {

@@ -4,33 +4,35 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class RunPagespeed:
-    analysis_utc_timestamp: Optional[str] = None
-    captcha_result: Optional[str] = None
-    id: Optional[str] = None
-    kind: Optional[str] = None
-    lighthouse_result: Optional[dict] = None
-    loading_experience: Optional[dict] = None
-    origin_loading_experience: Optional[dict] = None
-    version: Optional[dict] = None
+class RunPagespeed(TypedDict, total=False):
+    analysis_utc_timestamp: str
+    captcha_result: str
+    id: str
+    kind: str
+    lighthouse_result: dict
+    loading_experience: dict
+    origin_loading_experience: dict
+    version: dict
 
 
-@dataclass
-class RunPagespeedLoadMatch:
-    analysis_utc_timestamp: Optional[str] = None
-    captcha_result: Optional[str] = None
-    id: Optional[str] = None
-    kind: Optional[str] = None
-    lighthouse_result: Optional[dict] = None
-    loading_experience: Optional[dict] = None
-    origin_loading_experience: Optional[dict] = None
-    version: Optional[dict] = None
-
+class RunPagespeedLoadMatch(TypedDict, total=False):
+    analysis_utc_timestamp: str
+    captcha_result: str
+    id: str
+    kind: str
+    lighthouse_result: dict
+    loading_experience: dict
+    origin_loading_experience: dict
+    version: dict

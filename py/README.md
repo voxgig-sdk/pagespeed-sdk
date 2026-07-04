@@ -36,10 +36,12 @@ client = PagespeedSDK({
 
 ### 3. Load a runpagespeed
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.runpagespeed.load({"id": "example_id"})
-    print(result)
+    runpagespeed = client.RunPagespeed().load({"id": "example_id"})
+    print(runpagespeed)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -87,8 +89,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = PagespeedSDK.test()
 
-result = client.runpagespeed.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+runpagespeed = client.RunPagespeed().load({"id": "test01"})
+# runpagespeed contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -230,7 +233,7 @@ API path: `/runPagespeed`
 
 ### RunPagespeed
 
-Create an instance: `const run_pagespeed = client.run_pagespeed`
+Create an instance: `run_pagespeed = client.RunPagespeed()`
 
 #### Operations
 
@@ -253,8 +256,8 @@ Create an instance: `const run_pagespeed = client.run_pagespeed`
 
 #### Example: Load
 
-```ts
-const run_pagespeed = await client.run_pagespeed.load({ id: 'run_pagespeed_id' })
+```python
+run_pagespeed = client.RunPagespeed().load({"id": "run_pagespeed_id"})
 ```
 
 
@@ -328,7 +331,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-runpagespeed = client.runpagespeed
+runpagespeed = client.RunPagespeed()
 runpagespeed.load({"id": "example_id"})
 
 # runpagespeed.data_get() now returns the loaded runpagespeed data

@@ -220,25 +220,15 @@ class PagespeedSDK:
         }
 
 
-    @property
-    def run_pagespeed(self):
-        """Idiomatic facade: client.run_pagespeed.list() / client.run_pagespeed.load({"id": ...})."""
-        from entity.run_pagespeed_entity import RunPagespeedEntity
-        cached = getattr(self, "_run_pagespeed", None)
-        if cached is None:
-            cached = RunPagespeedEntity(self, None)
-            self._run_pagespeed = cached
-        return cached
-
-    def RunPagespeed(self, data=None):
-        # Deprecated: use client.run_pagespeed instead.
+    def RunPagespeed(self, data=None) -> "RunPagespeedEntity":
+        """Entity factory: client.RunPagespeed().list({}) / client.RunPagespeed().load({"id": ...})."""
         from entity.run_pagespeed_entity import RunPagespeedEntity
         return RunPagespeedEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "PagespeedSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class PagespeedSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.run_pagespeed_entity import RunPagespeedEntity

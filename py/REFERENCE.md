@@ -81,7 +81,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## RunPagespeedEntity
 
 ```python
-run_pagespeed = client.run_pagespeed
+run_pagespeed = client.RunPagespeed()
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ run_pagespeed = client.run_pagespeed
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.run_pagespeed.load({"id": "run_pagespeed_id"})
+result = client.RunPagespeed().load({"id": "run_pagespeed_id"})
 ```
 
 ### Common Methods

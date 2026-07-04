@@ -208,13 +208,7 @@ class PagespeedSDK
   end
 
 
-  # Idiomatic facade: client.run_pagespeed.list / client.run_pagespeed.load({ "id" => ... })
-  def run_pagespeed
-    require_relative 'entity/run_pagespeed_entity'
-    @run_pagespeed ||= RunPagespeedEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.run_pagespeed instead.
+  # Canonical facade: client.RunPagespeed.list / client.RunPagespeed.load({ "id" => ... })
   def RunPagespeed(data = nil)
     require_relative 'entity/run_pagespeed_entity'
     RunPagespeedEntity.new(self, data)

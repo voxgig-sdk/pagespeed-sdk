@@ -86,7 +86,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## RunPagespeedEntity
 
 ```php
-$run_pagespeed = $client->run_pagespeed();
+$run_pagespeed = $client->RunPagespeed();
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ $run_pagespeed = $client->run_pagespeed();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->run_pagespeed()->load(["id" => "run_pagespeed_id"]);
+$result = $client->RunPagespeed()->load(["id" => "run_pagespeed_id"]);
 ```
 
 ### Common Methods

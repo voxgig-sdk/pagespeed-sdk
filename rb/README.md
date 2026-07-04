@@ -34,8 +34,9 @@ client = PagespeedSDK.new({
 
 ```ruby
 begin
-  result = client.runpagespeed.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare RunPagespeed record (raises on error).
+  runpagespeed = client.RunPagespeed.load({ "id" => "example_id" })
+  puts runpagespeed
 rescue => err
   warn "load failed: #{err}"
 end
@@ -82,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = PagespeedSDK.test
+client = PagespeedSDK.test({
+  "entity" => { "runpagespeed" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.runpagespeed.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+runpagespeed = client.RunPagespeed.load({ "id" => "test01" })
+puts runpagespeed
 ```
 
 ### Use a custom fetch function
@@ -229,7 +234,7 @@ API path: `/runPagespeed`
 
 ### RunPagespeed
 
-Create an instance: `const run_pagespeed = client.run_pagespeed`
+Create an instance: `run_pagespeed = client.RunPagespeed`
 
 #### Operations
 
@@ -252,8 +257,9 @@ Create an instance: `const run_pagespeed = client.run_pagespeed`
 
 #### Example: Load
 
-```ts
-const run_pagespeed = await client.run_pagespeed.load({ id: 'run_pagespeed_id' })
+```ruby
+# load returns the bare RunPagespeed record (raises on error).
+run_pagespeed = client.RunPagespeed.load({ "id" => "run_pagespeed_id" })
 ```
 
 
@@ -328,7 +334,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-runpagespeed = client.runpagespeed
+runpagespeed = client.RunPagespeed
 runpagespeed.load({ "id" => "example_id" })
 
 # runpagespeed.data_get now returns the loaded runpagespeed data

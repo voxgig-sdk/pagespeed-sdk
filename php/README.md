@@ -35,9 +35,10 @@ $client = new PagespeedSDK([
 
 ```php
 try {
-    $result = $client->runpagespeed()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare RunPagespeed record (throws on error).
+    $runpagespeed = $client->RunPagespeed()->load(["id" => "example_id"]);
+    print_r($runpagespeed);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -83,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = PagespeedSDK::test();
+$client = PagespeedSDK::test([
+    "entity" => ["runpagespeed" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->runpagespeed()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$runpagespeed = $client->RunPagespeed()->load(["id" => "test01"]);
+print_r($runpagespeed);
 ```
 
 ### Use a custom fetch function
@@ -234,7 +239,7 @@ API path: `/runPagespeed`
 
 ### RunPagespeed
 
-Create an instance: `const run_pagespeed = client.run_pagespeed`
+Create an instance: `$run_pagespeed = $client->RunPagespeed();`
 
 #### Operations
 
@@ -257,8 +262,9 @@ Create an instance: `const run_pagespeed = client.run_pagespeed`
 
 #### Example: Load
 
-```ts
-const run_pagespeed = await client.run_pagespeed.load({ id: 'run_pagespeed_id' })
+```php
+// load() returns the bare RunPagespeed record (throws on error).
+$run_pagespeed = $client->RunPagespeed()->load(["id" => "run_pagespeed_id"]);
 ```
 
 
@@ -333,7 +339,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$runpagespeed = $client->runpagespeed();
+$runpagespeed = $client->RunPagespeed();
 $runpagespeed->load(["id" => "example_id"]);
 
 // $runpagespeed->dataGet() now returns the loaded runpagespeed data

@@ -87,7 +87,7 @@ same parameters as `direct()`. Raises on error.
 ## RunPagespeedEntity
 
 ```ruby
-run_pagespeed = client.run_pagespeed
+run_pagespeed = client.RunPagespeed
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ run_pagespeed = client.run_pagespeed
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.run_pagespeed.load({ "id" => "run_pagespeed_id" })
+result = client.RunPagespeed.load({ "id" => "run_pagespeed_id" })
 ```
 
 ### Common Methods
