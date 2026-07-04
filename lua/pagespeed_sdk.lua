@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:run_pagespeed():list() / client:run_pagespeed():load({ id = ... })
+function PagespeedSDK:run_pagespeed(data)
+  local EntityMod = require("entity.run_pagespeed_entity")
+  if data == nil then
+    if self._run_pagespeed == nil then
+      self._run_pagespeed = EntityMod.new(self, nil)
+    end
+    return self._run_pagespeed
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:run_pagespeed() instead.
 function PagespeedSDK:RunPagespeed(data)
   local EntityMod = require("entity.run_pagespeed_entity")
   return EntityMod.new(self, data)

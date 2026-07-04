@@ -9,9 +9,12 @@ The TypeScript SDK for the Pagespeed API — a type-safe, entity-oriented client
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/pagespeed
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/pagespeed-sdk/releases](https://github.com/voxgig-sdk/pagespeed-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,7 +23,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { PagespeedSDK } from 'pagespeed'
+import { PagespeedSDK } from '@voxgig-sdk/pagespeed'
 
 const client = new PagespeedSDK({
   apikey: process.env.PAGESPEED_APIKEY,
@@ -30,7 +33,7 @@ const client = new PagespeedSDK({
 ### 3. Load a runpagespeed
 
 ```ts
-const result = await client.RunPagespeed().load({ id: 'example_id' })
+const result = await client.runpagespeed.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = PagespeedSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.runpagespeed.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -96,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.runpagespeed
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -273,7 +276,7 @@ API path: `/runPagespeed`
 
 ### RunPagespeed
 
-Create an instance: `const run_pagespeed = client.RunPagespeed()`
+Create an instance: `const run_pagespeed = client.run_pagespeed`
 
 #### Operations
 
@@ -297,7 +300,7 @@ Create an instance: `const run_pagespeed = client.RunPagespeed()`
 #### Example: Load
 
 ```ts
-const run_pagespeed = await client.RunPagespeed().load({ id: 'run_pagespeed_id' })
+const run_pagespeed = await client.run_pagespeed.load({ id: 'run_pagespeed_id' })
 ```
 
 
@@ -358,7 +361,7 @@ pagespeed/
 Import the SDK from the package root:
 
 ```ts
-import { PagespeedSDK } from 'pagespeed'
+import { PagespeedSDK } from '@voxgig-sdk/pagespeed'
 ```
 
 ### Entity state
@@ -368,11 +371,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const runpagespeed = client.runpagespeed
+await runpagespeed.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// runpagespeed.data() now returns the loaded runpagespeed data
+// runpagespeed.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

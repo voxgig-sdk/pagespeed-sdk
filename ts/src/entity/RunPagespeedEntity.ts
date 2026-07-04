@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  RunPagespeed,
+  RunPagespeedLoadMatch,
+} from '../PagespeedTypes'
 
 // TODO: needs Entity superclass
-class RunPagespeedEntity extends PagespeedEntityBase {
+class RunPagespeedEntity extends PagespeedEntityBase<RunPagespeed> {
 
   constructor(client: PagespeedSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class RunPagespeedEntity extends PagespeedEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: RunPagespeedLoadMatch, ctrl?: Control): Promise<RunPagespeed> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class RunPagespeedEntity extends PagespeedEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<RunPagespeed> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

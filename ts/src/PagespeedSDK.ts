@@ -2,6 +2,8 @@
 
 import { RunPagespeedEntity } from './entity/RunPagespeedEntity'
 
+export type * from './PagespeedTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class PagespeedSDK {
 
 
 
+  _run_pagespeed?: RunPagespeedEntity
+
+  // Idiomatic facade: `client.run_pagespeed.list()` / `client.run_pagespeed.load({ id })`.
+  get run_pagespeed(): RunPagespeedEntity {
+    return (this._run_pagespeed ??= new RunPagespeedEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.run_pagespeed` instead. */
   RunPagespeed(data?: any) {
     const self = this
     return new RunPagespeedEntity(self,data)

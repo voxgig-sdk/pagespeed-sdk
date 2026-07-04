@@ -85,6 +85,27 @@ func (e *RunPagespeedEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an RunPagespeed; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *RunPagespeedEntity) DataTyped(data ...RunPagespeed) RunPagespeed {
+	if len(data) > 0 {
+		return typedFrom[RunPagespeed](e.Data(asMap(data[0])))
+	}
+	return typedFrom[RunPagespeed](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through RunPagespeed (all fields
+// optional at the wire level).
+func (e *RunPagespeedEntity) MatchTyped(match ...RunPagespeed) RunPagespeed {
+	if len(match) > 0 {
+		return typedFrom[RunPagespeed](e.Match(asMap(match[0])))
+	}
+	return typedFrom[RunPagespeed](e.Match())
+}
+
 
 func (e *RunPagespeedEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *RunPagespeedEntity) Load(reqmatch map[string]any, ctrl map[string]any) 
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// RunPagespeedLoadMatch and returns an RunPagespeed. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *RunPagespeedEntity) LoadTyped(reqmatch RunPagespeedLoadMatch, ctrl map[string]any) (RunPagespeed, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return RunPagespeed{}, err
+	}
+	return typedFrom[RunPagespeed](res), nil
 }
 
 

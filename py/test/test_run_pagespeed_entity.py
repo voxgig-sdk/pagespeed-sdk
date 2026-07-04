@@ -51,8 +51,7 @@ class TestRunPagespeedEntity:
         run_pagespeed_ref01_match_dt0 = {
             "id": run_pagespeed_ref01_data["id"],
         }
-        run_pagespeed_ref01_data_dt0_loaded, err = run_pagespeed_ref01_ent.load(run_pagespeed_ref01_match_dt0, None)
-        assert err is None
+        run_pagespeed_ref01_data_dt0_loaded = run_pagespeed_ref01_ent.load(run_pagespeed_ref01_match_dt0, None)
         run_pagespeed_ref01_data_dt0_load_result = helpers.to_map(run_pagespeed_ref01_data_dt0_loaded)
         assert run_pagespeed_ref01_data_dt0_load_result is not None
         assert run_pagespeed_ref01_data_dt0_load_result["id"] == run_pagespeed_ref01_data["id"]

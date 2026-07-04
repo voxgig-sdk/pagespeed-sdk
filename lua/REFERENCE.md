@@ -84,7 +84,7 @@ same parameters as `direct()`.
 ## RunPagespeedEntity
 
 ```lua
-local run_pagespeed = client:RunPagespeed(nil)
+local run_pagespeed = client:run_pagespeed(nil)
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ local run_pagespeed = client:RunPagespeed(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:RunPagespeed():load({ id = "run_pagespeed_id" })
+local result, err = client:run_pagespeed():load({ id = "run_pagespeed_id" })
 ```
 
 ### Common Methods

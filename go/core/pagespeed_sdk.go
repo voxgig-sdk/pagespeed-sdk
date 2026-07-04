@@ -245,6 +245,9 @@ func (sdk *PagespeedSDK) Direct(fetchargs map[string]any) (map[string]any, error
 }
 
 
+// RunPagespeed returns a RunPagespeed entity bound to this client.
+// Idiomatic usage: client.RunPagespeed(nil).List(nil, nil) or
+// client.RunPagespeed(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *PagespeedSDK) RunPagespeed(data map[string]any) PagespeedEntity {
 	return NewRunPagespeedEntityFunc(sdk, data)
 }

@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch RunPagespeedLoadMatch
+---@param ctrl? table
+---@return RunPagespeed
+---@return string? err
 function RunPagespeedEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

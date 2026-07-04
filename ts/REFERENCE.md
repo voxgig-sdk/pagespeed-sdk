@@ -110,7 +110,7 @@ Alias for `PagespeedSDK.test()`.
 ## RunPagespeedEntity
 
 ```ts
-const run_pagespeed = client.RunPagespeed()
+const run_pagespeed = client.run_pagespeed
 ```
 
 ### Fields
@@ -133,7 +133,7 @@ const run_pagespeed = client.RunPagespeed()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.RunPagespeed().load({ id: 'run_pagespeed_id' })
+const result = await client.run_pagespeed.load({ id: 'run_pagespeed_id' })
 ```
 
 ### Common Methods

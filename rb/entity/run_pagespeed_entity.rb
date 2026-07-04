@@ -45,6 +45,7 @@ class RunPagespeedEntity
     end
   end
 
+  # @return [RunPagespeed, Hash] the current RunPagespeed data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class RunPagespeedEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of RunPagespeed fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single RunPagespeed.
+  #
+  # @param reqmatch [RunPagespeedLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [RunPagespeed, Hash] the loaded RunPagespeed; raises PagespeedError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
