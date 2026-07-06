@@ -17,6 +17,14 @@
 ---@field version? table
 
 ---@class RunPagespeedLoadMatch
+---@field analysis_utc_timestamp? string
+---@field captcha_result? string
+---@field id string
+---@field kind? string
+---@field lighthouse_result? table
+---@field loading_experience? table
+---@field origin_loading_experience? table
+---@field version? table
 
 local M = {}
 

@@ -98,14 +98,14 @@ run_pagespeed := client.RunPagespeed(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysis_utc_timestamp` | ``$STRING`` | No |  |
-| `captcha_result` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kind` | ``$STRING`` | No |  |
-| `lighthouse_result` | ``$OBJECT`` | No |  |
-| `loading_experience` | ``$OBJECT`` | No |  |
-| `origin_loading_experience` | ``$OBJECT`` | No |  |
-| `version` | ``$OBJECT`` | No |  |
+| `analysis_utc_timestamp` | `string` | No |  |
+| `captcha_result` | `string` | No |  |
+| `id` | `string` | No |  |
+| `kind` | `string` | No |  |
+| `lighthouse_result` | `map[string]any` | No |  |
+| `loading_experience` | `map[string]any` | No |  |
+| `origin_loading_experience` | `map[string]any` | No |  |
+| `version` | `map[string]any` | No |  |
 
 ### Operations
 

@@ -16,5 +16,14 @@ export interface RunPagespeed {
   version?: Record<string, any>
 }
 
-export type RunPagespeedLoadMatch = Partial<RunPagespeed>
+export interface RunPagespeedLoadMatch {
+  analysis_utc_timestamp?: string
+  captcha_result?: string
+  id: string
+  kind?: string
+  lighthouse_result?: Record<string, any>
+  loading_experience?: Record<string, any>
+  origin_loading_experience?: Record<string, any>
+  version?: Record<string, any>
+}
 

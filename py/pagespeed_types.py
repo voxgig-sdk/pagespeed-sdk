@@ -27,10 +27,13 @@ class RunPagespeed(TypedDict, total=False):
     version: dict
 
 
-class RunPagespeedLoadMatch(TypedDict, total=False):
+class RunPagespeedLoadMatchRequired(TypedDict):
+    id: str
+
+
+class RunPagespeedLoadMatch(RunPagespeedLoadMatchRequired, total=False):
     analysis_utc_timestamp: str
     captcha_result: str
-    id: str
     kind: str
     lighthouse_result: dict
     loading_experience: dict

@@ -25,12 +25,12 @@ class RunPagespeed
     public ?array $version = null;
 }
 
-/** Match filter for RunPagespeed#load (any subset of RunPagespeed fields). */
+/** Request payload for RunPagespeed#load. */
 class RunPagespeedLoadMatch
 {
     public ?string $analysis_utc_timestamp = null;
     public ?string $captcha_result = null;
-    public ?string $id = null;
+    public string $id;
     public ?string $kind = null;
     public ?array $lighthouse_result = null;
     public ?array $loading_experience = null;

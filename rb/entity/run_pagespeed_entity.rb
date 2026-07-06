@@ -67,10 +67,12 @@ class RunPagespeedEntity
   
   # Load a single RunPagespeed.
   #
-  # @param reqmatch [RunPagespeedLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param reqmatch [RunPagespeedLoadMatch, Hash, nil] match criteria (id/query fields);
+  #   optional — an entity with no id-like key loads with no match (nil is treated
+  #   as an empty match, so client.RunPagespeed.load works with no args).
   # @param ctrl [Object, nil] optional per-call control
   # @return [RunPagespeed, Hash] the loaded RunPagespeed; raises PagespeedError on failure
-  def load(reqmatch, ctrl = nil)
+  def load(reqmatch = nil, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
       "opname" => "load",

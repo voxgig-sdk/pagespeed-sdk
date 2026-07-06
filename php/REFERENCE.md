@@ -46,11 +46,11 @@ $client = PagespeedSDK::test();
 
 Create a new `RunPagespeedEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): PagespeedUtility`
 
 Return a copy of the SDK utility object.
 
@@ -93,14 +93,14 @@ $run_pagespeed = $client->RunPagespeed();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysis_utc_timestamp` | ``$STRING`` | No |  |
-| `captcha_result` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kind` | ``$STRING`` | No |  |
-| `lighthouse_result` | ``$OBJECT`` | No |  |
-| `loading_experience` | ``$OBJECT`` | No |  |
-| `origin_loading_experience` | ``$OBJECT`` | No |  |
-| `version` | ``$OBJECT`` | No |  |
+| `analysis_utc_timestamp` | `string` | No |  |
+| `captcha_result` | `string` | No |  |
+| `id` | `string` | No |  |
+| `kind` | `string` | No |  |
+| `lighthouse_result` | `array` | No |  |
+| `loading_experience` | `array` | No |  |
+| `origin_loading_experience` | `array` | No |  |
+| `version` | `array` | No |  |
 
 ### Operations
 
@@ -114,19 +114,19 @@ $result = $client->RunPagespeed()->load(["id" => "run_pagespeed_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -135,7 +135,7 @@ Set the entity match criteria.
 Create a new `RunPagespeedEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

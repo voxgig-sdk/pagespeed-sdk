@@ -45,7 +45,7 @@ RunPagespeed = Struct.new(
   keyword_init: true
 )
 
-# Match filter for RunPagespeed#load (any subset of RunPagespeed fields).
+# Request payload for RunPagespeed#load.
 #
 # @!attribute [rw] analysis_utc_timestamp
 #   @return [String, nil]
@@ -54,7 +54,7 @@ RunPagespeed = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] kind
 #   @return [String, nil]

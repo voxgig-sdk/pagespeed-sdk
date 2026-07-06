@@ -221,7 +221,7 @@ class PagespeedSDK:
 
 
     def RunPagespeed(self, data=None) -> "RunPagespeedEntity":
-        """Entity factory: client.RunPagespeed().list({}) / client.RunPagespeed().load({"id": ...})."""
+        """Entity factory: client.RunPagespeed().list() / client.RunPagespeed().load({"id": ...})."""
         from entity.run_pagespeed_entity import RunPagespeedEntity
         return RunPagespeedEntity(self, data)
 

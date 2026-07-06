@@ -20,12 +20,11 @@ type RunPagespeed struct {
 	Version *map[string]any `json:"version,omitempty"`
 }
 
-// RunPagespeedLoadMatch mirrors the run_pagespeed fields as an all-optional match
-// filter (Go analog of Partial<RunPagespeed>).
+// RunPagespeedLoadMatch is the typed request payload for RunPagespeed.LoadTyped.
 type RunPagespeedLoadMatch struct {
 	AnalysisUtcTimestamp *string `json:"analysis_utc_timestamp,omitempty"`
 	CaptchaResult *string `json:"captcha_result,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Kind *string `json:"kind,omitempty"`
 	LighthouseResult *map[string]any `json:"lighthouse_result,omitempty"`
 	LoadingExperience *map[string]any `json:"loading_experience,omitempty"`

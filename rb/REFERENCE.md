@@ -8,7 +8,7 @@ Complete API reference for the Pagespeed Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'pagespeed_sdk'
+require_relative 'Pagespeed_sdk'
 
 client = PagespeedSDK.new(options)
 ```
@@ -94,14 +94,14 @@ run_pagespeed = client.RunPagespeed
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysis_utc_timestamp` | ``$STRING`` | No |  |
-| `captcha_result` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kind` | ``$STRING`` | No |  |
-| `lighthouse_result` | ``$OBJECT`` | No |  |
-| `loading_experience` | ``$OBJECT`` | No |  |
-| `origin_loading_experience` | ``$OBJECT`` | No |  |
-| `version` | ``$OBJECT`` | No |  |
+| `analysis_utc_timestamp` | `String` | No |  |
+| `captcha_result` | `String` | No |  |
+| `id` | `String` | No |  |
+| `kind` | `String` | No |  |
+| `lighthouse_result` | `Hash` | No |  |
+| `loading_experience` | `Hash` | No |  |
+| `origin_loading_experience` | `Hash` | No |  |
+| `version` | `Hash` | No |  |
 
 ### Operations
 

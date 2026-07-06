@@ -117,14 +117,14 @@ const run_pagespeed = client.RunPagespeed()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysis_utc_timestamp` | ``$STRING`` | No |  |
-| `captcha_result` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kind` | ``$STRING`` | No |  |
-| `lighthouse_result` | ``$OBJECT`` | No |  |
-| `loading_experience` | ``$OBJECT`` | No |  |
-| `origin_loading_experience` | ``$OBJECT`` | No |  |
-| `version` | ``$OBJECT`` | No |  |
+| `analysis_utc_timestamp` | `string` | No |  |
+| `captcha_result` | `string` | No |  |
+| `id` | `string` | No |  |
+| `kind` | `string` | No |  |
+| `lighthouse_result` | `Record<string, any>` | No |  |
+| `loading_experience` | `Record<string, any>` | No |  |
+| `origin_loading_experience` | `Record<string, any>` | No |  |
+| `version` | `Record<string, any>` | No |  |
 
 ### Operations
 
