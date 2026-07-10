@@ -91,7 +91,8 @@ same parameters as `Direct()`.
 ## RunPagespeedEntity
 
 ```go
-run_pagespeed := client.RunPagespeed(nil)
+runPagespeed := client.RunPagespeed(nil)
+fmt.Println(runPagespeed.GetName()) // "run_pagespeed"
 ```
 
 ### Fields
@@ -115,6 +116,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.RunPagespeed(nil).Load(map[string]any{"id": "run_pagespeed_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

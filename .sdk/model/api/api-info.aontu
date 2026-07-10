@@ -9,15 +9,22 @@ main: {
         url: "https://developers.google.com/speed/docs/insights/rest/v5/pagespeedapi/runpagespeed"
       }
       description: "Runs PageSpeed analysis on a specified URL, providing scores, suggestions for faster loading, and other data. Supports different categories, locales, and strategies."
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "oauth2"
+        type: "oauth2"
+      }
       servers: [
         {
           description: "PageSpeed Insights API v5"
           url: "https://pagespeedonline.googleapis.com/pagespeedonline/v5"
         }
       ]
+      summary: "Runs PageSpeed analysis on a specified URL, providing scores, suggestions for faster loading, and other data."
       title: "PageSpeed Insights API"
       version: "v5"
+      website: "https://pagespeedonline.googleapis.com"
     }
   }
-}
-

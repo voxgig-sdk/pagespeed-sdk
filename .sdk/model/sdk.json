@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -310,14 +307,24 @@
           "url": "https://developers.google.com/speed/docs/insights/rest/v5/pagespeedapi/runpagespeed"
         },
         "description": "Runs PageSpeed analysis on a specified URL, providing scores, suggestions for faster loading, and other data. Supports different categories, locales, and strategies.",
+        "meta_source": "https://www.freepublicapis.com",
+        "security": {
+          "in": "header",
+          "name": "Authorization",
+          "prefix": "Bearer",
+          "scheme": "oauth2",
+          "type": "oauth2"
+        },
         "servers": [
           {
             "description": "PageSpeed Insights API v5",
             "url": "https://pagespeedonline.googleapis.com/pagespeedonline/v5"
           }
         ],
+        "summary": "Runs PageSpeed analysis on a specified URL, providing scores, suggestions for faster loading, and other data.",
         "title": "PageSpeed Insights API",
-        "version": "v5"
+        "version": "v5",
+        "website": "https://pagespeedonline.googleapis.com"
       },
       "option": {},
       "target": {
@@ -370,6 +377,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -420,6 +430,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

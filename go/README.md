@@ -53,12 +53,12 @@ func main() {
         "apikey": os.Getenv("PAGESPEED_APIKEY"),
     })
 
-    // Load a single runpagespeed — the value is the loaded record.
-    runpagespeed, err := client.RunPagespeed(nil).Load(map[string]any{"id": "example"}, nil)
+    // Load a single runPagespeed — the value is the loaded record.
+    runPagespeed, err := client.RunPagespeed(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(runpagespeed)
+    fmt.Println(runPagespeed)
 }
 ```
 
@@ -138,13 +138,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-runpagespeed, err := client.RunPagespeed(nil).Load(
+runPagespeed, err := client.RunPagespeed(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(runpagespeed) // the returned mock data
+fmt.Println(runPagespeed) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -250,9 +250,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    runpagespeed, err := client.RunPagespeed(nil).Load(map[string]any{"id": "example_id"}, nil)
+    runPagespeed, err := client.RunPagespeed(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil { /* handle */ }
-    // runpagespeed is the returned record
+    // runPagespeed is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -283,7 +283,7 @@ API path: `/runPagespeed`
 
 ### RunPagespeed
 
-Create an instance: `run_pagespeed := client.RunPagespeed(nil)`
+Create an instance: `runPagespeed := client.RunPagespeed(nil)`
 
 #### Operations
 
@@ -307,11 +307,11 @@ Create an instance: `run_pagespeed := client.RunPagespeed(nil)`
 #### Example: Load
 
 ```go
-run_pagespeed, err := client.RunPagespeed(nil).Load(map[string]any{"id": "run_pagespeed_id"}, nil)
+runPagespeed, err := client.RunPagespeed(nil).Load(map[string]any{"id": "run_pagespeed_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(run_pagespeed) // the loaded record
+fmt.Println(runPagespeed) // the loaded record
 ```
 
 
