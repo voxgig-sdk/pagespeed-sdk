@@ -36,7 +36,7 @@ client = PagespeedSDK.new({
 
 ```ruby
 begin
-  # load returns the bare RunPagespeed record (raises on error).
+  # load returns the ENTITY — call data_get for the RunPagespeed record (raises on error).
   runpagespeed = client.RunPagespeed.load({ "id" => "example_id" })
   puts runpagespeed
 rescue => err
@@ -122,7 +122,8 @@ client = PagespeedSDK.test({
   "entity" => { "runpagespeed" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 runpagespeed = client.RunPagespeed.load({ "id" => "test01" })
 puts runpagespeed
 ```
@@ -241,13 +242,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `analysis_utc_timestamp` |  |
-| `captcha_result` |  |
+| `analysisUTCTimestamp` |  |
+| `captchaResult` |  |
 | `id` |  |
 | `kind` |  |
-| `lighthouse_result` |  |
-| `loading_experience` |  |
-| `origin_loading_experience` |  |
+| `lighthouseResult` |  |
+| `loadingExperience` |  |
+| `originLoadingExperience` |  |
 | `version` |  |
 
 Operations: Load.
@@ -273,19 +274,19 @@ Create an instance: `run_pagespeed = client.RunPagespeed`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysis_utc_timestamp` | `String` |  |
-| `captcha_result` | `String` |  |
+| `analysisUTCTimestamp` | `String` |  |
+| `captchaResult` | `String` |  |
 | `id` | `String` |  |
 | `kind` | `String` |  |
-| `lighthouse_result` | `Hash` |  |
-| `loading_experience` | `Hash` |  |
-| `origin_loading_experience` | `Hash` |  |
+| `lighthouseResult` | `Hash` |  |
+| `loadingExperience` | `Hash` |  |
+| `originLoadingExperience` | `Hash` |  |
 | `version` | `Hash` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare RunPagespeed record (raises on error).
+# load returns the ENTITY — call data_get for the RunPagespeed record (raises on error).
 run_pagespeed = client.RunPagespeed.load({ "id" => "run_pagespeed_id" })
 ```
 

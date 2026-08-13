@@ -94,13 +94,13 @@ run_pagespeed = client.RunPagespeed
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysis_utc_timestamp` | `String` | No |  |
-| `captcha_result` | `String` | No |  |
+| `analysisUTCTimestamp` | `String` | No |  |
+| `captchaResult` | `String` | No |  |
 | `id` | `String` | No |  |
 | `kind` | `String` | No |  |
-| `lighthouse_result` | `Hash` | No |  |
-| `loading_experience` | `Hash` | No |  |
-| `origin_loading_experience` | `Hash` | No |  |
+| `lighthouseResult` | `Hash` | No |  |
+| `loadingExperience` | `Hash` | No |  |
+| `originLoadingExperience` | `Hash` | No |  |
 | `version` | `Hash` | No |  |
 
 ### Operations

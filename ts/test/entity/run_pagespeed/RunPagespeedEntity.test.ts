@@ -63,7 +63,7 @@ describe('RunPagespeedEntity', async () => {
     const run_pagespeed_ref01_ent = client.RunPagespeed()
     const run_pagespeed_ref01_match_dt0: any = {}
     run_pagespeed_ref01_match_dt0.id = run_pagespeed_ref01_data.id
-    const run_pagespeed_ref01_data_dt0 = await run_pagespeed_ref01_ent.load(run_pagespeed_ref01_match_dt0)
+    const run_pagespeed_ref01_data_dt0 = (await run_pagespeed_ref01_ent.load(run_pagespeed_ref01_match_dt0)).data()
     assert(run_pagespeed_ref01_data_dt0.id === run_pagespeed_ref01_data.id)
 
 

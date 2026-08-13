@@ -16,11 +16,11 @@
 import pytest
 
 from pagespeed_sdk import PagespeedSDK
-from core.error import PagespeedError
-from core.result import PagespeedResult
-from core.response import PagespeedResponse
-from core.spec import PagespeedSpec
-from feature.base_feature import PagespeedBaseFeature
+from pagespeed_sdk.core.error import PagespeedError
+from pagespeed_sdk.core.result import PagespeedResult
+from pagespeed_sdk.core.response import PagespeedResponse
+from pagespeed_sdk.core.spec import PagespeedSpec
+from pagespeed_sdk.feature.base_feature import PagespeedBaseFeature
 
 
 def _client():

@@ -7,23 +7,23 @@
 -- edit by hand.
 
 ---@class RunPagespeed
----@field analysis_utc_timestamp? string
----@field captcha_result? string
+---@field analysisUTCTimestamp? string
+---@field captchaResult? string
 ---@field id? string
 ---@field kind? string
----@field lighthouse_result? table
----@field loading_experience? table
----@field origin_loading_experience? table
+---@field lighthouseResult? table
+---@field loadingExperience? table
+---@field originLoadingExperience? table
 ---@field version? table
 
 ---@class RunPagespeedLoadMatch
----@field analysis_utc_timestamp? string
----@field captcha_result? string
+---@field analysisUTCTimestamp? string
+---@field captchaResult? string
 ---@field id string
 ---@field kind? string
----@field lighthouse_result? table
----@field loading_experience? table
----@field origin_loading_experience? table
+---@field lighthouseResult? table
+---@field loadingExperience? table
+---@field originLoadingExperience? table
 ---@field version? table
 
 local M = {}

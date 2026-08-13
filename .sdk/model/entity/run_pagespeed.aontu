@@ -6,12 +6,12 @@ main: kit: entity: run_pagespeed: {
 
   fields: [
     {
-      name: "analysis_utc_timestamp"
+      name: "analysisUTCTimestamp"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "captcha_result"
+      name: "captchaResult"
       req: false
       type: "`$STRING`"
     }
@@ -26,17 +26,17 @@ main: kit: entity: run_pagespeed: {
       type: "`$STRING`"
     }
     {
-      name: "lighthouse_result"
+      name: "lighthouseResult"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "loading_experience"
+      name: "loadingExperience"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "origin_loading_experience"
+      name: "originLoadingExperience"
       req: false
       type: "`$OBJECT`"
     }

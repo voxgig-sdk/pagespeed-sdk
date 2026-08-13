@@ -2,33 +2,33 @@
   "existing": {
     "run_pagespeed": {
       "RUN_PAGESPEED00": {
-        "analysis_utc_timestamp": "s50",
-        "captcha_result": "s51",
+        "analysisUTCTimestamp": "s50",
+        "captchaResult": "s51",
         "id": "RUN_PAGESPEED00",
         "kind": "s53",
-        "lighthouse_result": {},
-        "loading_experience": {},
-        "origin_loading_experience": {},
+        "lighthouseResult": {},
+        "loadingExperience": {},
+        "originLoadingExperience": {},
         "version": {}
       },
       "RUN_PAGESPEED01": {
-        "analysis_utc_timestamp": "sa0",
-        "captcha_result": "sa1",
+        "analysisUTCTimestamp": "sa0",
+        "captchaResult": "sa1",
         "id": "RUN_PAGESPEED01",
         "kind": "sa3",
-        "lighthouse_result": {},
-        "loading_experience": {},
-        "origin_loading_experience": {},
+        "lighthouseResult": {},
+        "loadingExperience": {},
+        "originLoadingExperience": {},
         "version": {}
       },
       "RUN_PAGESPEED02": {
-        "analysis_utc_timestamp": "sf0",
-        "captcha_result": "sf1",
+        "analysisUTCTimestamp": "sf0",
+        "captchaResult": "sf1",
         "id": "RUN_PAGESPEED02",
         "kind": "sf3",
-        "lighthouse_result": {},
-        "loading_experience": {},
-        "origin_loading_experience": {},
+        "lighthouseResult": {},
+        "loadingExperience": {},
+        "originLoadingExperience": {},
         "version": {}
       }
     }
@@ -36,12 +36,12 @@
   "new": {
     "run_pagespeed": {
       "run_pagespeed_ref01": {
-        "analysis_utc_timestamp": "s140",
-        "captcha_result": "s141",
+        "analysisUTCTimestamp": "s140",
+        "captchaResult": "s141",
         "kind": "s143",
-        "lighthouse_result": {},
-        "loading_experience": {},
-        "origin_loading_experience": {},
+        "lighthouseResult": {},
+        "loadingExperience": {},
+        "originLoadingExperience": {},
         "version": {}
       }
     }

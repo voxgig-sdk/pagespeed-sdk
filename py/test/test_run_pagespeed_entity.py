@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from pagespeed_sdk.utility.voxgig_struct import voxgig_struct as vs
 from pagespeed_sdk import PagespeedSDK
-from core import helpers
+from pagespeed_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -52,7 +52,7 @@ class TestRunPagespeedEntity:
             "id": run_pagespeed_ref01_data["id"],
         }
         run_pagespeed_ref01_data_dt0_loaded = run_pagespeed_ref01_ent.load(run_pagespeed_ref01_match_dt0, None)
-        run_pagespeed_ref01_data_dt0_load_result = helpers.to_map(run_pagespeed_ref01_data_dt0_loaded)
+        run_pagespeed_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(run_pagespeed_ref01_data_dt0_loaded))
         assert run_pagespeed_ref01_data_dt0_load_result is not None
         assert run_pagespeed_ref01_data_dt0_load_result["id"] == run_pagespeed_ref01_data["id"]
 

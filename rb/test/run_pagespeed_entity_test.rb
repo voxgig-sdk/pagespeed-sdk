@@ -45,7 +45,7 @@ class RunPagespeedEntityTest < Minitest::Test
       "id" => run_pagespeed_ref01_data["id"],
     }
     run_pagespeed_ref01_data_dt0_loaded = run_pagespeed_ref01_ent.load(run_pagespeed_ref01_match_dt0, nil)
-    run_pagespeed_ref01_data_dt0_load_result = Helpers.to_map(run_pagespeed_ref01_data_dt0_loaded)
+    run_pagespeed_ref01_data_dt0_load_result = Helpers.to_map(run_pagespeed_ref01_data_dt0_loaded.respond_to?(:data_get) ? run_pagespeed_ref01_data_dt0_loaded.data_get : run_pagespeed_ref01_data_dt0_loaded)
     assert !run_pagespeed_ref01_data_dt0_load_result.nil?
     assert_equal run_pagespeed_ref01_data_dt0_load_result["id"], run_pagespeed_ref01_data["id"]
 

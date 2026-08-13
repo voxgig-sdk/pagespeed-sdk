@@ -10,10 +10,10 @@
 
 # RunPagespeed entity data model.
 #
-# @!attribute [rw] analysis_utc_timestamp
+# @!attribute [rw] analysisUTCTimestamp
 #   @return [String, nil]
 #
-# @!attribute [rw] captcha_result
+# @!attribute [rw] captchaResult
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -22,35 +22,35 @@
 # @!attribute [rw] kind
 #   @return [String, nil]
 #
-# @!attribute [rw] lighthouse_result
+# @!attribute [rw] lighthouseResult
 #   @return [Hash, nil]
 #
-# @!attribute [rw] loading_experience
+# @!attribute [rw] loadingExperience
 #   @return [Hash, nil]
 #
-# @!attribute [rw] origin_loading_experience
+# @!attribute [rw] originLoadingExperience
 #   @return [Hash, nil]
 #
 # @!attribute [rw] version
 #   @return [Hash, nil]
 RunPagespeed = Struct.new(
-  :analysis_utc_timestamp,
-  :captcha_result,
+  :analysisUTCTimestamp,
+  :captchaResult,
   :id,
   :kind,
-  :lighthouse_result,
-  :loading_experience,
-  :origin_loading_experience,
+  :lighthouseResult,
+  :loadingExperience,
+  :originLoadingExperience,
   :version,
   keyword_init: true
 )
 
 # Request payload for RunPagespeed#load.
 #
-# @!attribute [rw] analysis_utc_timestamp
+# @!attribute [rw] analysisUTCTimestamp
 #   @return [String, nil]
 #
-# @!attribute [rw] captcha_result
+# @!attribute [rw] captchaResult
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -59,25 +59,25 @@ RunPagespeed = Struct.new(
 # @!attribute [rw] kind
 #   @return [String, nil]
 #
-# @!attribute [rw] lighthouse_result
+# @!attribute [rw] lighthouseResult
 #   @return [Hash, nil]
 #
-# @!attribute [rw] loading_experience
+# @!attribute [rw] loadingExperience
 #   @return [Hash, nil]
 #
-# @!attribute [rw] origin_loading_experience
+# @!attribute [rw] originLoadingExperience
 #   @return [Hash, nil]
 #
 # @!attribute [rw] version
 #   @return [Hash, nil]
 RunPagespeedLoadMatch = Struct.new(
-  :analysis_utc_timestamp,
-  :captcha_result,
+  :analysisUTCTimestamp,
+  :captchaResult,
   :id,
   :kind,
-  :lighthouse_result,
-  :loading_experience,
-  :origin_loading_experience,
+  :lighthouseResult,
+  :loadingExperience,
+  :originLoadingExperience,
   :version,
   keyword_init: true
 )

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Pagespeed SDK exists test
 
 import pytest
 from pagespeed_sdk import PagespeedSDK

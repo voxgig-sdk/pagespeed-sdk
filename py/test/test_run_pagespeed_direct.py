@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from pagespeed_sdk.utility.voxgig_struct import voxgig_struct as vs
 from pagespeed_sdk import PagespeedSDK
-from core import helpers
+from pagespeed_sdk.core import helpers
 from test import runner
 
 

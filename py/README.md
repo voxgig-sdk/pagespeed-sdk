@@ -41,7 +41,7 @@ client = PagespeedSDK({
 
 ### 3. Load a runpagespeed
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = PagespeedSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 runpagespeed = client.RunPagespeed().load({"id": "test01"})
 # runpagespeed contains the mock response record
 ```
@@ -223,7 +224,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -245,13 +246,13 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `analysis_utc_timestamp` |  |
-| `captcha_result` |  |
+| `analysisUTCTimestamp` |  |
+| `captchaResult` |  |
 | `id` |  |
 | `kind` |  |
-| `lighthouse_result` |  |
-| `loading_experience` |  |
-| `origin_loading_experience` |  |
+| `lighthouseResult` |  |
+| `loadingExperience` |  |
+| `originLoadingExperience` |  |
 | `version` |  |
 
 Operations: Load.
@@ -277,13 +278,13 @@ Create an instance: `run_pagespeed = client.RunPagespeed()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysis_utc_timestamp` | `str` |  |
-| `captcha_result` | `str` |  |
+| `analysisUTCTimestamp` | `str` |  |
+| `captchaResult` | `str` |  |
 | `id` | `str` |  |
 | `kind` | `str` |  |
-| `lighthouse_result` | `dict` |  |
-| `loading_experience` | `dict` |  |
-| `origin_loading_experience` | `dict` |  |
+| `lighthouseResult` | `dict` |  |
+| `loadingExperience` | `dict` |  |
+| `originLoadingExperience` | `dict` |  |
 | `version` | `dict` |  |
 
 #### Example: Load

@@ -263,13 +263,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"analysis_utc_timestamp"` |  |
-| `"captcha_result"` |  |
+| `"analysisUTCTimestamp"` |  |
+| `"captchaResult"` |  |
 | `"id"` |  |
 | `"kind"` |  |
-| `"lighthouse_result"` |  |
-| `"loading_experience"` |  |
-| `"origin_loading_experience"` |  |
+| `"lighthouseResult"` |  |
+| `"loadingExperience"` |  |
+| `"originLoadingExperience"` |  |
 | `"version"` |  |
 
 Operations: Load.
@@ -295,13 +295,13 @@ Create an instance: `runPagespeed := client.RunPagespeed(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysis_utc_timestamp` | `string` |  |
-| `captcha_result` | `string` |  |
+| `analysisUTCTimestamp` | `string` |  |
+| `captchaResult` | `string` |  |
 | `id` | `string` |  |
 | `kind` | `string` |  |
-| `lighthouse_result` | `map[string]any` |  |
-| `loading_experience` | `map[string]any` |  |
-| `origin_loading_experience` | `map[string]any` |  |
+| `lighthouseResult` | `map[string]any` |  |
+| `loadingExperience` | `map[string]any` |  |
+| `originLoadingExperience` | `map[string]any` |  |
 | `version` | `map[string]any` |  |
 
 #### Example: Load

@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 const client = PagespeedSDK.test()
 
 const runpagespeed = await client.RunPagespeed().load({ id: 'test01' })
-// runpagespeed is a bare entity populated with mock response data
+// runpagespeed is the entity, populated with mock response data
+// — call runpagespeed.data() for the record itself
 console.log(runpagespeed)
 ```
 
@@ -290,13 +291,13 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `analysis_utc_timestamp` |  |
-| `captcha_result` |  |
+| `analysisUTCTimestamp` |  |
+| `captchaResult` |  |
 | `id` |  |
 | `kind` |  |
-| `lighthouse_result` |  |
-| `loading_experience` |  |
-| `origin_loading_experience` |  |
+| `lighthouseResult` |  |
+| `loadingExperience` |  |
+| `originLoadingExperience` |  |
 | `version` |  |
 
 Operations: load.
@@ -322,13 +323,13 @@ Create an instance: `const run_pagespeed = client.RunPagespeed()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysis_utc_timestamp` | `string` |  |
-| `captcha_result` | `string` |  |
+| `analysisUTCTimestamp` | `string` |  |
+| `captchaResult` | `string` |  |
 | `id` | `string` |  |
 | `kind` | `string` |  |
-| `lighthouse_result` | `Record<string, any>` |  |
-| `loading_experience` | `Record<string, any>` |  |
-| `origin_loading_experience` | `Record<string, any>` |  |
+| `lighthouseResult` | `Record<string, any>` |  |
+| `loadingExperience` | `Record<string, any>` |  |
+| `originLoadingExperience` | `Record<string, any>` |  |
 | `version` | `Record<string, any>` |  |
 
 #### Example: Load

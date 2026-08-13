@@ -99,13 +99,13 @@ fmt.Println(runPagespeed.GetName()) // "run_pagespeed"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysis_utc_timestamp` | `string` | No |  |
-| `captcha_result` | `string` | No |  |
+| `analysisUTCTimestamp` | `string` | No |  |
+| `captchaResult` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kind` | `string` | No |  |
-| `lighthouse_result` | `map[string]any` | No |  |
-| `loading_experience` | `map[string]any` | No |  |
-| `origin_loading_experience` | `map[string]any` | No |  |
+| `lighthouseResult` | `map[string]any` | No |  |
+| `loadingExperience` | `map[string]any` | No |  |
+| `originLoadingExperience` | `map[string]any` | No |  |
 | `version` | `map[string]any` | No |  |
 
 ### Operations

@@ -229,13 +229,13 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `analysis_utc_timestamp` |  |
-| `captcha_result` |  |
+| `analysisUTCTimestamp` |  |
+| `captchaResult` |  |
 | `id` |  |
 | `kind` |  |
-| `lighthouse_result` |  |
-| `loading_experience` |  |
-| `origin_loading_experience` |  |
+| `lighthouseResult` |  |
+| `loadingExperience` |  |
+| `originLoadingExperience` |  |
 | `version` |  |
 
 Operations: Load.
@@ -261,13 +261,13 @@ Create an instance: `local run_pagespeed = client:RunPagespeed(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysis_utc_timestamp` | `string` |  |
-| `captcha_result` | `string` |  |
+| `analysisUTCTimestamp` | `string` |  |
+| `captchaResult` | `string` |  |
 | `id` | `string` |  |
 | `kind` | `string` |  |
-| `lighthouse_result` | `table` |  |
-| `loading_experience` | `table` |  |
-| `origin_loading_experience` | `table` |  |
+| `lighthouseResult` | `table` |  |
+| `loadingExperience` | `table` |  |
+| `originLoadingExperience` | `table` |  |
 | `version` | `table` |  |
 
 #### Example: Load

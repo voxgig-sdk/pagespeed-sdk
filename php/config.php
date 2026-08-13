@@ -35,14 +35,14 @@ class PagespeedConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'analysis_utc_timestamp',
+              'name' => 'analysisUTCTimestamp',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 0,
             ],
             [
               'active' => true,
-              'name' => 'captcha_result',
+              'name' => 'captchaResult',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 1,
@@ -63,21 +63,21 @@ class PagespeedConfig
             ],
             [
               'active' => true,
-              'name' => 'lighthouse_result',
+              'name' => 'lighthouseResult',
               'req' => false,
               'type' => '`$OBJECT`',
               'index$' => 4,
             ],
             [
               'active' => true,
-              'name' => 'loading_experience',
+              'name' => 'loadingExperience',
               'req' => false,
               'type' => '`$OBJECT`',
               'index$' => 5,
             ],
             [
               'active' => true,
-              'name' => 'origin_loading_experience',
+              'name' => 'originLoadingExperience',
               'req' => false,
               'type' => '`$OBJECT`',
               'index$' => 6,
@@ -159,6 +159,7 @@ class PagespeedConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/runPagespeed',
                   'parts' => [

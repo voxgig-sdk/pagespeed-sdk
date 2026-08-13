@@ -15,26 +15,26 @@ declare(strict_types=1);
 /** RunPagespeed entity data model. */
 class RunPagespeed
 {
-    public ?string $analysis_utc_timestamp = null;
-    public ?string $captcha_result = null;
+    public ?string $analysisUTCTimestamp = null;
+    public ?string $captchaResult = null;
     public ?string $id = null;
     public ?string $kind = null;
-    public ?array $lighthouse_result = null;
-    public ?array $loading_experience = null;
-    public ?array $origin_loading_experience = null;
+    public ?array $lighthouseResult = null;
+    public ?array $loadingExperience = null;
+    public ?array $originLoadingExperience = null;
     public ?array $version = null;
 }
 
 /** Request payload for RunPagespeed#load. */
 class RunPagespeedLoadMatch
 {
-    public ?string $analysis_utc_timestamp = null;
-    public ?string $captcha_result = null;
+    public ?string $analysisUTCTimestamp = null;
+    public ?string $captchaResult = null;
     public string $id;
     public ?string $kind = null;
-    public ?array $lighthouse_result = null;
-    public ?array $loading_experience = null;
-    public ?array $origin_loading_experience = null;
+    public ?array $lighthouseResult = null;
+    public ?array $loadingExperience = null;
+    public ?array $originLoadingExperience = null;
     public ?array $version = null;
 }
 

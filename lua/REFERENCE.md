@@ -91,13 +91,13 @@ local run_pagespeed = client:RunPagespeed(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysis_utc_timestamp` | `string` | No |  |
-| `captcha_result` | `string` | No |  |
+| `analysisUTCTimestamp` | `string` | No |  |
+| `captchaResult` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kind` | `string` | No |  |
-| `lighthouse_result` | `table` | No |  |
-| `loading_experience` | `table` | No |  |
-| `origin_loading_experience` | `table` | No |  |
+| `lighthouseResult` | `table` | No |  |
+| `loadingExperience` | `table` | No |  |
+| `originLoadingExperience` | `table` | No |  |
 | `version` | `table` | No |  |
 
 ### Operations

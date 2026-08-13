@@ -37,7 +37,7 @@ $client = new PagespeedSDK([
 
 ```php
 try {
-    // load() returns the bare RunPagespeed record (throws on error).
+    // load() returns the ENTITY — call data_get() for the RunPagespeed record (throws on error).
     $runpagespeed = $client->RunPagespeed()->load(["id" => "example_id"]);
     print_r($runpagespeed);
 } catch (\Throwable $err) {
@@ -128,7 +128,8 @@ $client = PagespeedSDK::test([
     "entity" => ["runpagespeed" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $runpagespeed = $client->RunPagespeed()->load(["id" => "test01"]);
 print_r($runpagespeed);
 ```
@@ -229,7 +230,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -251,13 +252,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `analysis_utc_timestamp` |  |
-| `captcha_result` |  |
+| `analysisUTCTimestamp` |  |
+| `captchaResult` |  |
 | `id` |  |
 | `kind` |  |
-| `lighthouse_result` |  |
-| `loading_experience` |  |
-| `origin_loading_experience` |  |
+| `lighthouseResult` |  |
+| `loadingExperience` |  |
+| `originLoadingExperience` |  |
 | `version` |  |
 
 Operations: Load.
@@ -283,19 +284,19 @@ Create an instance: `$run_pagespeed = $client->RunPagespeed();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysis_utc_timestamp` | `string` |  |
-| `captcha_result` | `string` |  |
+| `analysisUTCTimestamp` | `string` |  |
+| `captchaResult` | `string` |  |
 | `id` | `string` |  |
 | `kind` | `string` |  |
-| `lighthouse_result` | `array` |  |
-| `loading_experience` | `array` |  |
-| `origin_loading_experience` | `array` |  |
+| `lighthouseResult` | `array` |  |
+| `loadingExperience` | `array` |  |
+| `originLoadingExperience` | `array` |  |
 | `version` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare RunPagespeed record (throws on error).
+// load() returns the ENTITY — call data_get() for the RunPagespeed record (throws on error).
 $run_pagespeed = $client->RunPagespeed()->load(["id" => "run_pagespeed_id"]);
 ```
 

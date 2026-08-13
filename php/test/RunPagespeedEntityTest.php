@@ -52,7 +52,7 @@ class RunPagespeedEntityTest extends TestCase
             "id" => $run_pagespeed_ref01_data["id"],
         ];
         $run_pagespeed_ref01_data_dt0_loaded = $run_pagespeed_ref01_ent->load($run_pagespeed_ref01_match_dt0, null);
-        $run_pagespeed_ref01_data_dt0_load_result = Helpers::to_map($run_pagespeed_ref01_data_dt0_loaded);
+        $run_pagespeed_ref01_data_dt0_load_result = Helpers::to_map(is_object($run_pagespeed_ref01_data_dt0_loaded) && method_exists($run_pagespeed_ref01_data_dt0_loaded, 'data_get') ? $run_pagespeed_ref01_data_dt0_loaded->data_get() : $run_pagespeed_ref01_data_dt0_loaded);
         $this->assertNotNull($run_pagespeed_ref01_data_dt0_load_result);
         $this->assertEquals($run_pagespeed_ref01_data_dt0_load_result["id"], $run_pagespeed_ref01_data["id"]);
 

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import PagespeedControl
-from core.error import PagespeedError
-from core.result import PagespeedResult
-from core.spec import PagespeedSpec
+from pagespeed_sdk.config import make_config
+from pagespeed_sdk.features import _make_feature
+from pagespeed_sdk.core.control import PagespeedControl
+from pagespeed_sdk.core.error import PagespeedError
+from pagespeed_sdk.core.result import PagespeedResult
+from pagespeed_sdk.core.spec import PagespeedSpec
 
 
 # True when this SDK was generated with the named feature.

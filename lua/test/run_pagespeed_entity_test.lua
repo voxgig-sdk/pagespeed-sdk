@@ -49,7 +49,7 @@ describe("RunPagespeedEntity", function()
     }
     local run_pagespeed_ref01_data_dt0_loaded, err = run_pagespeed_ref01_ent:load(run_pagespeed_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local run_pagespeed_ref01_data_dt0_load_result = helpers.to_map(run_pagespeed_ref01_data_dt0_loaded)
+    local run_pagespeed_ref01_data_dt0_load_result = helpers.to_map(type(run_pagespeed_ref01_data_dt0_loaded) == 'table' and run_pagespeed_ref01_data_dt0_loaded.data_get and run_pagespeed_ref01_data_dt0_loaded:data_get() or run_pagespeed_ref01_data_dt0_loaded)
     assert.is_not_nil(run_pagespeed_ref01_data_dt0_load_result)
     assert.are.equal(run_pagespeed_ref01_data_dt0_load_result["id"], run_pagespeed_ref01_data["id"])
 

@@ -6,24 +6,24 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface RunPagespeed {
-  analysis_utc_timestamp?: string
-  captcha_result?: string
+  analysisUTCTimestamp?: string
+  captchaResult?: string
   id?: string
   kind?: string
-  lighthouse_result?: Record<string, any>
-  loading_experience?: Record<string, any>
-  origin_loading_experience?: Record<string, any>
+  lighthouseResult?: Record<string, any>
+  loadingExperience?: Record<string, any>
+  originLoadingExperience?: Record<string, any>
   version?: Record<string, any>
 }
 
 export interface RunPagespeedLoadMatch {
-  analysis_utc_timestamp?: string
-  captcha_result?: string
+  analysisUTCTimestamp?: string
+  captchaResult?: string
   id: string
   kind?: string
-  lighthouse_result?: Record<string, any>
-  loading_experience?: Record<string, any>
-  origin_loading_experience?: Record<string, any>
+  lighthouseResult?: Record<string, any>
+  loadingExperience?: Record<string, any>
+  originLoadingExperience?: Record<string, any>
   version?: Record<string, any>
 }
 

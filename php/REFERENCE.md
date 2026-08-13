@@ -93,13 +93,13 @@ $run_pagespeed = $client->RunPagespeed();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysis_utc_timestamp` | `string` | No |  |
-| `captcha_result` | `string` | No |  |
+| `analysisUTCTimestamp` | `string` | No |  |
+| `captchaResult` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kind` | `string` | No |  |
-| `lighthouse_result` | `array` | No |  |
-| `loading_experience` | `array` | No |  |
-| `origin_loading_experience` | `array` | No |  |
+| `lighthouseResult` | `array` | No |  |
+| `loadingExperience` | `array` | No |  |
+| `originLoadingExperience` | `array` | No |  |
 | `version` | `array` | No |  |
 
 ### Operations

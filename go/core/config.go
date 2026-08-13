@@ -29,14 +29,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "analysis_utc_timestamp",
+						"name": "analysisUTCTimestamp",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "captcha_result",
+						"name": "captchaResult",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -57,21 +57,21 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "lighthouse_result",
+						"name": "lighthouseResult",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
-						"name": "loading_experience",
+						"name": "loadingExperience",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 5,
 					},
 					map[string]any{
 						"active": true,
-						"name": "origin_loading_experience",
+						"name": "originLoadingExperience",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 6,
@@ -153,6 +153,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/runPagespeed",
 								"parts": []any{
@@ -176,7 +177,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

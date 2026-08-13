@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ PagespeedUtility::setRegistrar(function (PagespeedUtility $u): void {
     $u->prepare_params = [PagespeedPrepareParams::class, 'call'];
     $u->prepare_path = [PagespeedPreparePath::class, 'call'];
     $u->prepare_query = [PagespeedPrepareQuery::class, 'call'];
+    $u->graphql_body = [PagespeedGraphql::class, 'body'];
+    $u->graphql_errors = [PagespeedGraphql::class, 'errors'];
     $u->result_basic = [PagespeedResultBasic::class, 'call'];
     $u->result_body = [PagespeedResultBody::class, 'call'];
     $u->result_headers = [PagespeedResultHeaders::class, 'call'];
