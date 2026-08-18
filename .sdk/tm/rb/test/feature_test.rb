@@ -15,7 +15,7 @@ require_relative "../Pagespeed_sdk"
 module PagespeedFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = PagespeedConfig.make_config["feature"]
+    f = PagespeedConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

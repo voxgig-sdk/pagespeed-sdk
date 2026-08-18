@@ -28,7 +28,7 @@ class PagespeedSDK
     utility = PagespeedUtility.new
     @_utility = utility
 
-    config = PagespeedConfig.make_config
+    config = PagespeedConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

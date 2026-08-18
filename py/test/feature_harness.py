@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from pagespeed_sdk.config import make_config
+from pagespeed_sdk.config import shared_config
 from pagespeed_sdk.features import _make_feature
 from pagespeed_sdk.core.control import PagespeedControl
 from pagespeed_sdk.core.error import PagespeedError
@@ -24,7 +24,7 @@ from pagespeed_sdk.core.spec import PagespeedSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

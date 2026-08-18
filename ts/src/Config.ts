@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://pagespeedonline.googleapis.com/pagespeedonline/v5',
+    base: "https://pagespeedonline.googleapis.com/pagespeedonline/v5",
 
     auth: {
       prefix: 'Bearer',
@@ -59,60 +59,36 @@ class Config {
     "run_pagespeed": {
       "fields": [
         {
-          "active": true,
           "name": "analysisUTCTimestamp",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "captchaResult",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "kind",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "lighthouseResult",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 4
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "loadingExperience",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 5
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "originLoadingExperience",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 6
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "version",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 7
+          "type": "`$OBJECT`"
         }
       ],
       "name": "run_pagespeed",
@@ -122,44 +98,34 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "captcha_token",
                     "orig": "captcha_token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "category",
                     "orig": "category",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "DESKTOP",
                     "kind": "query",
                     "name": "strategy",
                     "orig": "strategy",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "url",
                     "orig": "url",
@@ -167,19 +133,15 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "utm_campaign",
                     "orig": "utm_campaign",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "utm_source",
                     "orig": "utm_source",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -204,11 +166,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

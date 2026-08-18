@@ -40,7 +40,7 @@ class PagespeedSDK
         $utility = new PagespeedUtility();
         $this->_utility = $utility;
 
-        $config = PagespeedConfig::make_config();
+        $config = PagespeedConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

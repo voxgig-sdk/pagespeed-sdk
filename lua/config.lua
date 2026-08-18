@@ -1,5 +1,8 @@
 -- Pagespeed SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -28,60 +31,36 @@ local function make_config()
       ["run_pagespeed"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "analysisUTCTimestamp",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "captchaResult",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "id",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "kind",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "lighthouseResult",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 4,
           },
           {
-            ["active"] = true,
             ["name"] = "loadingExperience",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 5,
           },
           {
-            ["active"] = true,
             ["name"] = "originLoadingExperience",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 6,
           },
           {
-            ["active"] = true,
             ["name"] = "version",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 7,
           },
         },
         ["name"] = "run_pagespeed",
@@ -91,44 +70,34 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "captcha_token",
                       ["orig"] = "captcha_token",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "category",
                       ["orig"] = "category",
-                      ["reqd"] = false,
                       ["type"] = "`$ARRAY`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "locale",
                       ["orig"] = "locale",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "DESKTOP",
                       ["kind"] = "query",
                       ["name"] = "strategy",
                       ["orig"] = "strategy",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "url",
                       ["orig"] = "url",
@@ -136,19 +105,15 @@ local function make_config()
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "utm_campaign",
                       ["orig"] = "utm_campaign",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "utm_source",
                       ["orig"] = "utm_source",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                   },
@@ -174,10 +139,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {
