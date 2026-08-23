@@ -246,14 +246,14 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `analysisUTCTimestamp` |  |
-| `captchaResult` |  |
-| `id` |  |
-| `kind` |  |
-| `lighthouseResult` |  |
-| `loadingExperience` |  |
-| `originLoadingExperience` |  |
-| `version` |  |
+| `analysisUTCTimestamp` | The UTC timestamp of this analysis |
+| `captchaResult` | The captcha verify result |
+| `id` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | Kind of result |
+| `lighthouseResult` | The Lighthouse result object |
+| `loadingExperience` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | The Pagespeed Version object |
 
 Operations: Load.
 
@@ -278,14 +278,14 @@ Create an instance: `run_pagespeed = client.RunPagespeed()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysisUTCTimestamp` | `str` |  |
-| `captchaResult` | `str` |  |
-| `id` | `str` |  |
-| `kind` | `str` |  |
-| `lighthouseResult` | `dict` |  |
-| `loadingExperience` | `dict` |  |
-| `originLoadingExperience` | `dict` |  |
-| `version` | `dict` |  |
+| `analysisUTCTimestamp` | `str` | The UTC timestamp of this analysis |
+| `captchaResult` | `str` | The captcha verify result |
+| `id` | `str` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `str` | Kind of result |
+| `lighthouseResult` | `dict` | The Lighthouse result object |
+| `loadingExperience` | `dict` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `dict` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `dict` | The Pagespeed Version object |
 
 #### Example: Load
 

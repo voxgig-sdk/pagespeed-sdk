@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Pagespeed",
+			"slug": "pagespeed",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -36,34 +39,42 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "analysisUTCTimestamp",
+						"short": "The UTC timestamp of this analysis",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "captchaResult",
+						"short": "The captcha verify result",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Canonicalized and final URL for the document, after following page redirects (if any)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "kind",
+						"short": "Kind of result",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lighthouseResult",
+						"short": "The Lighthouse result object",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "loadingExperience",
+						"short": "The CrUX loading experience object that contains CrUX data breakdowns",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "originLoadingExperience",
+						"short": "The CrUX loading experience object that contains CrUX data breakdowns",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "version",
+						"short": "The Pagespeed Version object",
 						"type": "`$OBJECT`",
 					},
 				},

@@ -6,7 +6,7 @@ The Golang SDK for the Pagespeed API — an entity-oriented client using standar
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.RunPagespeed(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -263,14 +263,14 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"analysisUTCTimestamp"` |  |
-| `"captchaResult"` |  |
-| `"id"` |  |
-| `"kind"` |  |
-| `"lighthouseResult"` |  |
-| `"loadingExperience"` |  |
-| `"originLoadingExperience"` |  |
-| `"version"` |  |
+| `"analysisUTCTimestamp"` | The UTC timestamp of this analysis |
+| `"captchaResult"` | The captcha verify result |
+| `"id"` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `"kind"` | Kind of result |
+| `"lighthouseResult"` | The Lighthouse result object |
+| `"loadingExperience"` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `"originLoadingExperience"` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `"version"` | The Pagespeed Version object |
 
 Operations: Load.
 
@@ -295,14 +295,14 @@ Create an instance: `runPagespeed := client.RunPagespeed(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysisUTCTimestamp` | `string` |  |
-| `captchaResult` | `string` |  |
-| `id` | `string` |  |
-| `kind` | `string` |  |
-| `lighthouseResult` | `map[string]any` |  |
-| `loadingExperience` | `map[string]any` |  |
-| `originLoadingExperience` | `map[string]any` |  |
-| `version` | `map[string]any` |  |
+| `analysisUTCTimestamp` | `string` | The UTC timestamp of this analysis |
+| `captchaResult` | `string` | The captcha verify result |
+| `id` | `string` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `string` | Kind of result |
+| `lighthouseResult` | `map[string]any` | The Lighthouse result object |
+| `loadingExperience` | `map[string]any` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `map[string]any` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `map[string]any` | The Pagespeed Version object |
 
 #### Example: Load
 

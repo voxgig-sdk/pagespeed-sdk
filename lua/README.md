@@ -229,14 +229,14 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `analysisUTCTimestamp` |  |
-| `captchaResult` |  |
-| `id` |  |
-| `kind` |  |
-| `lighthouseResult` |  |
-| `loadingExperience` |  |
-| `originLoadingExperience` |  |
-| `version` |  |
+| `analysisUTCTimestamp` | The UTC timestamp of this analysis |
+| `captchaResult` | The captcha verify result |
+| `id` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | Kind of result |
+| `lighthouseResult` | The Lighthouse result object |
+| `loadingExperience` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | The Pagespeed Version object |
 
 Operations: Load.
 
@@ -261,14 +261,14 @@ Create an instance: `local run_pagespeed = client:RunPagespeed(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysisUTCTimestamp` | `string` |  |
-| `captchaResult` | `string` |  |
-| `id` | `string` |  |
-| `kind` | `string` |  |
-| `lighthouseResult` | `table` |  |
-| `loadingExperience` | `table` |  |
-| `originLoadingExperience` | `table` |  |
-| `version` | `table` |  |
+| `analysisUTCTimestamp` | `string` | The UTC timestamp of this analysis |
+| `captchaResult` | `string` | The captcha verify result |
+| `id` | `string` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `string` | Kind of result |
+| `lighthouseResult` | `table` | The Lighthouse result object |
+| `loadingExperience` | `table` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `table` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `table` | The Pagespeed Version object |
 
 #### Example: Load
 

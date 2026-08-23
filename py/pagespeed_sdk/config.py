@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Pagespeed",
+            "slug": "pagespeed",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -53,34 +56,42 @@ def make_config():
         "fields": [
           {
             "name": "analysisUTCTimestamp",
+            "short": "The UTC timestamp of this analysis",
             "type": "`$STRING`",
           },
           {
             "name": "captchaResult",
+            "short": "The captcha verify result",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "Canonicalized and final URL for the document, after following page redirects (if any)",
             "type": "`$STRING`",
           },
           {
             "name": "kind",
+            "short": "Kind of result",
             "type": "`$STRING`",
           },
           {
             "name": "lighthouseResult",
+            "short": "The Lighthouse result object",
             "type": "`$OBJECT`",
           },
           {
             "name": "loadingExperience",
+            "short": "The CrUX loading experience object that contains CrUX data breakdowns",
             "type": "`$OBJECT`",
           },
           {
             "name": "originLoadingExperience",
+            "short": "The CrUX loading experience object that contains CrUX data breakdowns",
             "type": "`$OBJECT`",
           },
           {
             "name": "version",
+            "short": "The Pagespeed Version object",
             "type": "`$OBJECT`",
           },
         ],

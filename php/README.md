@@ -252,14 +252,14 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `analysisUTCTimestamp` |  |
-| `captchaResult` |  |
-| `id` |  |
-| `kind` |  |
-| `lighthouseResult` |  |
-| `loadingExperience` |  |
-| `originLoadingExperience` |  |
-| `version` |  |
+| `analysisUTCTimestamp` | The UTC timestamp of this analysis |
+| `captchaResult` | The captcha verify result |
+| `id` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | Kind of result |
+| `lighthouseResult` | The Lighthouse result object |
+| `loadingExperience` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | The Pagespeed Version object |
 
 Operations: Load.
 
@@ -284,14 +284,14 @@ Create an instance: `$run_pagespeed = $client->RunPagespeed();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysisUTCTimestamp` | `string` |  |
-| `captchaResult` | `string` |  |
-| `id` | `string` |  |
-| `kind` | `string` |  |
-| `lighthouseResult` | `array` |  |
-| `loadingExperience` | `array` |  |
-| `originLoadingExperience` | `array` |  |
-| `version` | `array` |  |
+| `analysisUTCTimestamp` | `string` | The UTC timestamp of this analysis |
+| `captchaResult` | `string` | The captcha verify result |
+| `id` | `string` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `string` | Kind of result |
+| `lighthouseResult` | `array` | The Lighthouse result object |
+| `loadingExperience` | `array` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `array` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `array` | The Pagespeed Version object |
 
 #### Example: Load
 

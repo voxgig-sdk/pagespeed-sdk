@@ -117,14 +117,14 @@ const run_pagespeed = client.RunPagespeed()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysisUTCTimestamp` | `string` | No |  |
-| `captchaResult` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kind` | `string` | No |  |
-| `lighthouseResult` | `Record<string, any>` | No |  |
-| `loadingExperience` | `Record<string, any>` | No |  |
-| `originLoadingExperience` | `Record<string, any>` | No |  |
-| `version` | `Record<string, any>` | No |  |
+| `analysisUTCTimestamp` | `string` | No | The UTC timestamp of this analysis |
+| `captchaResult` | `string` | No | The captcha verify result |
+| `id` | `string` | No | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `string` | No | Kind of result |
+| `lighthouseResult` | `Record<string, any>` | No | The Lighthouse result object |
+| `loadingExperience` | `Record<string, any>` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `Record<string, any>` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `Record<string, any>` | No | The Pagespeed Version object |
 
 ### Operations
 

@@ -91,14 +91,14 @@ local run_pagespeed = client:RunPagespeed(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysisUTCTimestamp` | `string` | No |  |
-| `captchaResult` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kind` | `string` | No |  |
-| `lighthouseResult` | `table` | No |  |
-| `loadingExperience` | `table` | No |  |
-| `originLoadingExperience` | `table` | No |  |
-| `version` | `table` | No |  |
+| `analysisUTCTimestamp` | `string` | No | The UTC timestamp of this analysis |
+| `captchaResult` | `string` | No | The captcha verify result |
+| `id` | `string` | No | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `string` | No | Kind of result |
+| `lighthouseResult` | `table` | No | The Lighthouse result object |
+| `loadingExperience` | `table` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `table` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `table` | No | The Pagespeed Version object |
 
 ### Operations
 

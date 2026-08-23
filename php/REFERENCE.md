@@ -93,14 +93,14 @@ $run_pagespeed = $client->RunPagespeed();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysisUTCTimestamp` | `string` | No |  |
-| `captchaResult` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kind` | `string` | No |  |
-| `lighthouseResult` | `array` | No |  |
-| `loadingExperience` | `array` | No |  |
-| `originLoadingExperience` | `array` | No |  |
-| `version` | `array` | No |  |
+| `analysisUTCTimestamp` | `string` | No | The UTC timestamp of this analysis |
+| `captchaResult` | `string` | No | The captcha verify result |
+| `id` | `string` | No | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `string` | No | Kind of result |
+| `lighthouseResult` | `array` | No | The Lighthouse result object |
+| `loadingExperience` | `array` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `array` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `array` | No | The Pagespeed Version object |
 
 ### Operations
 

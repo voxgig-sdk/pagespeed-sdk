@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -291,14 +291,14 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `analysisUTCTimestamp` |  |
-| `captchaResult` |  |
-| `id` |  |
-| `kind` |  |
-| `lighthouseResult` |  |
-| `loadingExperience` |  |
-| `originLoadingExperience` |  |
-| `version` |  |
+| `analysisUTCTimestamp` | The UTC timestamp of this analysis |
+| `captchaResult` | The captcha verify result |
+| `id` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | Kind of result |
+| `lighthouseResult` | The Lighthouse result object |
+| `loadingExperience` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | The Pagespeed Version object |
 
 Operations: load.
 
@@ -323,14 +323,14 @@ Create an instance: `const run_pagespeed = client.RunPagespeed()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysisUTCTimestamp` | `string` |  |
-| `captchaResult` | `string` |  |
-| `id` | `string` |  |
-| `kind` | `string` |  |
-| `lighthouseResult` | `Record<string, any>` |  |
-| `loadingExperience` | `Record<string, any>` |  |
-| `originLoadingExperience` | `Record<string, any>` |  |
-| `version` | `Record<string, any>` |  |
+| `analysisUTCTimestamp` | `string` | The UTC timestamp of this analysis |
+| `captchaResult` | `string` | The captcha verify result |
+| `id` | `string` | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `string` | Kind of result |
+| `lighthouseResult` | `Record<string, any>` | The Lighthouse result object |
+| `loadingExperience` | `Record<string, any>` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `Record<string, any>` | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `Record<string, any>` | The Pagespeed Version object |
 
 #### Example: Load
 

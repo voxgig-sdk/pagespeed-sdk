@@ -8,41 +8,49 @@ main: kit: entity: run_pagespeed: {
     {
       name: "analysisUTCTimestamp"
       req: false
+      short: "The UTC timestamp of this analysis"
       type: "`$STRING`"
     }
     {
       name: "captchaResult"
       req: false
+      short: "The captcha verify result"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Canonicalized and final URL for the document, after following page redirects (if any)"
       type: "`$STRING`"
     }
     {
       name: "kind"
       req: false
+      short: "Kind of result"
       type: "`$STRING`"
     }
     {
       name: "lighthouseResult"
       req: false
+      short: "The Lighthouse result object"
       type: "`$OBJECT`"
     }
     {
       name: "loadingExperience"
       req: false
+      short: "The CrUX loading experience object that contains CrUX data breakdowns"
       type: "`$OBJECT`"
     }
     {
       name: "originLoadingExperience"
       req: false
+      short: "The CrUX loading experience object that contains CrUX data breakdowns"
       type: "`$OBJECT`"
     }
     {
       name: "version"
       req: false
+      short: "The Pagespeed Version object"
       type: "`$OBJECT`"
     }
   ]

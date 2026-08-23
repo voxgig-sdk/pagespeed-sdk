@@ -88,14 +88,14 @@ run_pagespeed = client.RunPagespeed()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysisUTCTimestamp` | `str` | No |  |
-| `captchaResult` | `str` | No |  |
-| `id` | `str` | No |  |
-| `kind` | `str` | No |  |
-| `lighthouseResult` | `dict` | No |  |
-| `loadingExperience` | `dict` | No |  |
-| `originLoadingExperience` | `dict` | No |  |
-| `version` | `dict` | No |  |
+| `analysisUTCTimestamp` | `str` | No | The UTC timestamp of this analysis |
+| `captchaResult` | `str` | No | The captcha verify result |
+| `id` | `str` | No | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `str` | No | Kind of result |
+| `lighthouseResult` | `dict` | No | The Lighthouse result object |
+| `loadingExperience` | `dict` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `dict` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `dict` | No | The Pagespeed Version object |
 
 ### Operations
 

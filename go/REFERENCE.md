@@ -99,14 +99,14 @@ fmt.Println(runPagespeed.GetName()) // "run_pagespeed"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysisUTCTimestamp` | `string` | No |  |
-| `captchaResult` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kind` | `string` | No |  |
-| `lighthouseResult` | `map[string]any` | No |  |
-| `loadingExperience` | `map[string]any` | No |  |
-| `originLoadingExperience` | `map[string]any` | No |  |
-| `version` | `map[string]any` | No |  |
+| `analysisUTCTimestamp` | `string` | No | The UTC timestamp of this analysis |
+| `captchaResult` | `string` | No | The captcha verify result |
+| `id` | `string` | No | Canonicalized and final URL for the document, after following page redirects (if any) |
+| `kind` | `string` | No | Kind of result |
+| `lighthouseResult` | `map[string]any` | No | The Lighthouse result object |
+| `loadingExperience` | `map[string]any` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `originLoadingExperience` | `map[string]any` | No | The CrUX loading experience object that contains CrUX data breakdowns |
+| `version` | `map[string]any` | No | The Pagespeed Version object |
 
 ### Operations
 
