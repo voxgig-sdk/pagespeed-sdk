@@ -47,38 +47,34 @@ RunPagespeed = Struct.new(
 
 # Request payload for RunPagespeed#load.
 #
-# @!attribute [rw] analysisUTCTimestamp
+# @!attribute [rw] captcha_token
 #   @return [String, nil]
 #
-# @!attribute [rw] captchaResult
+# @!attribute [rw] category
+#   @return [Array, nil]
+#
+# @!attribute [rw] locale
 #   @return [String, nil]
 #
-# @!attribute [rw] id
+# @!attribute [rw] strategy
+#   @return [String, nil]
+#
+# @!attribute [rw] url
 #   @return [String]
 #
-# @!attribute [rw] kind
+# @!attribute [rw] utm_campaign
 #   @return [String, nil]
 #
-# @!attribute [rw] lighthouseResult
-#   @return [Hash, nil]
-#
-# @!attribute [rw] loadingExperience
-#   @return [Hash, nil]
-#
-# @!attribute [rw] originLoadingExperience
-#   @return [Hash, nil]
-#
-# @!attribute [rw] version
-#   @return [Hash, nil]
+# @!attribute [rw] utm_source
+#   @return [String, nil]
 RunPagespeedLoadMatch = Struct.new(
-  :analysisUTCTimestamp,
-  :captchaResult,
-  :id,
-  :kind,
-  :lighthouseResult,
-  :loadingExperience,
-  :originLoadingExperience,
-  :version,
+  :captcha_token,
+  :category,
+  :locale,
+  :strategy,
+  :url,
+  :utm_campaign,
+  :utm_source,
   keyword_init: true
 )
 

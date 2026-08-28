@@ -26,14 +26,13 @@ type RunPagespeed struct {
 
 // RunPagespeedLoadMatch is the typed request payload for RunPagespeed.LoadTyped.
 type RunPagespeedLoadMatch struct {
-	AnalysisUTCTimestamp *string `json:"analysisUTCTimestamp,omitempty"`
-	CaptchaResult *string `json:"captchaResult,omitempty"`
-	Id string `json:"id"`
-	Kind *string `json:"kind,omitempty"`
-	LighthouseResult *map[string]any `json:"lighthouseResult,omitempty"`
-	LoadingExperience *map[string]any `json:"loadingExperience,omitempty"`
-	OriginLoadingExperience *map[string]any `json:"originLoadingExperience,omitempty"`
-	Version *map[string]any `json:"version,omitempty"`
+	CaptchaToken *string `json:"captcha_token,omitempty"`
+	Category *[]any `json:"category,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Strategy *string `json:"strategy,omitempty"`
+	Url string `json:"url"`
+	UtmCampaign *string `json:"utm_campaign,omitempty"`
+	UtmSource *string `json:"utm_source,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

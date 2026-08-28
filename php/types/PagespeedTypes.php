@@ -28,13 +28,12 @@ class RunPagespeed
 /** Request payload for RunPagespeed#load. */
 class RunPagespeedLoadMatch
 {
-    public ?string $analysisUTCTimestamp = null;
-    public ?string $captchaResult = null;
-    public string $id;
-    public ?string $kind = null;
-    public ?array $lighthouseResult = null;
-    public ?array $loadingExperience = null;
-    public ?array $originLoadingExperience = null;
-    public ?array $version = null;
+    public ?string $captcha_token = null;
+    public ?array $category = null;
+    public ?string $locale = null;
+    public ?string $strategy = null;
+    public string $url;
+    public ?string $utm_campaign = null;
+    public ?string $utm_source = null;
 }
 

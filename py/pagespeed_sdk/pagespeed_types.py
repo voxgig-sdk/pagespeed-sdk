@@ -28,14 +28,13 @@ class RunPagespeed(TypedDict, total=False):
 
 
 class RunPagespeedLoadMatchRequired(TypedDict):
-    id: str
+    url: str
 
 
 class RunPagespeedLoadMatch(RunPagespeedLoadMatchRequired, total=False):
-    analysisUTCTimestamp: str
-    captchaResult: str
-    kind: str
-    lighthouseResult: dict
-    loadingExperience: dict
-    originLoadingExperience: dict
-    version: dict
+    captcha_token: str
+    category: list
+    locale: str
+    strategy: str
+    utm_campaign: str
+    utm_source: str

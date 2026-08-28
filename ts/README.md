@@ -41,7 +41,7 @@ const client = new PagespeedSDK({
 
 ```ts
 try {
-  const runpagespeed = await client.RunPagespeed().load({ id: 'example_id' })
+  const runpagespeed = await client.RunPagespeed().load({ url: 'example_url' })
   console.log(runpagespeed)
 } catch (err) {
   console.error('load failed:', err)
@@ -55,7 +55,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const runpagespeed = await client.RunPagespeed().load({ id: "example_id" })
+  const runpagespeed = await client.RunPagespeed().load({ url: "example" })
   console.log(runpagespeed)
 } catch (err) {
   console.error('load failed:', err)
@@ -122,7 +122,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = PagespeedSDK.test()
 
-const runpagespeed = await client.RunPagespeed().load({ id: 'test01' })
+const runpagespeed = await client.RunPagespeed().load({ url: 'example_url' })
 // runpagespeed is the entity, populated with mock response data
 // — call runpagespeed.data() for the record itself
 console.log(runpagespeed)
@@ -143,7 +143,7 @@ Entity instances remember their last match and data:
 const entity = client.RunPagespeed()
 
 // First call runs the operation and stores its result
-await entity.load({ id: 'example' })
+await entity.load({ url: 'example_url' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -335,8 +335,31 @@ Create an instance: `const run_pagespeed = client.RunPagespeed()`
 #### Example: Load
 
 ```ts
-const run_pagespeed = await client.RunPagespeed().load({ id: 'run_pagespeed_id' })
+const run_pagespeed = await client.RunPagespeed().load({ url: 'url' })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -409,10 +432,10 @@ calls on the same instance can rely on this state.
 
 ```ts
 const runpagespeed = client.RunPagespeed()
-await runpagespeed.load({ id: "example_id" })
+await runpagespeed.load({ url: "example" })
 
 // runpagespeed.data() now returns the runpagespeed data from the last `load`
-// runpagespeed.match() returns { id: "example_id" }
+// runpagespeed.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

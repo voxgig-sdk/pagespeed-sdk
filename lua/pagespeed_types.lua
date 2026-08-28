@@ -17,14 +17,13 @@
 ---@field version? table
 
 ---@class RunPagespeedLoadMatch
----@field analysisUTCTimestamp? string
----@field captchaResult? string
----@field id string
----@field kind? string
----@field lighthouseResult? table
----@field loadingExperience? table
----@field originLoadingExperience? table
----@field version? table
+---@field captcha_token? string
+---@field category? table
+---@field locale? string
+---@field strategy? string
+---@field url string
+---@field utm_campaign? string
+---@field utm_source? string
 
 local M = {}
 

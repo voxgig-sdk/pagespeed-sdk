@@ -38,7 +38,7 @@ $client = new PagespeedSDK([
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the RunPagespeed record (throws on error).
-    $runpagespeed = $client->RunPagespeed()->load(["id" => "example_id"]);
+    $runpagespeed = $client->RunPagespeed()->load(["url" => "example_url"]);
     print_r($runpagespeed);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $runpagespeed = $client->RunPagespeed()->load(["id" => "example_id"]);
+    $runpagespeed = $client->RunPagespeed()->load(["url" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -120,17 +120,14 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = PagespeedSDK::test([
-    "entity" => ["runpagespeed" => ["test01" => ["id" => "test01"]]],
-]);
+$client = PagespeedSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$runpagespeed = $client->RunPagespeed()->load(["id" => "test01"]);
+$runpagespeed = $client->RunPagespeed()->load(["url" => "example"]);
 print_r($runpagespeed);
 ```
 
@@ -297,8 +294,31 @@ Create an instance: `$run_pagespeed = $client->RunPagespeed();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the RunPagespeed record (throws on error).
-$run_pagespeed = $client->RunPagespeed()->load(["id" => "run_pagespeed_id"]);
+$run_pagespeed = $client->RunPagespeed()->load(["url" => "url"]);
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -378,7 +398,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $runpagespeed = $client->RunPagespeed();
-$runpagespeed->load(["id" => "example_id"]);
+$runpagespeed->load(["url" => "example"]);
 
 // $runpagespeed->data_get() now returns the runpagespeed data from the last load
 // $runpagespeed->match_get() returns the last match criteria
