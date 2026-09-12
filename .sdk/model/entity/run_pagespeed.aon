@@ -122,8 +122,10 @@ main: kit: entity: run_pagespeed: {
           }
           method: "GET"
           orig: "/runPagespeed"
-          parts: [
-            "runPagespeed"
+          segments: [
+            {
+              lit: "runPagespeed"
+            }
           ]
           select: {
             exist: [

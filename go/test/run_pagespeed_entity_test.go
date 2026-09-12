@@ -50,7 +50,7 @@ func TestRunPagespeedEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		runPagespeedRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.run_pagespeed", setup.data)))
+		runPagespeedRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.run_pagespeed")))
 		var runPagespeedRef01Data map[string]any
 		if len(runPagespeedRef01DataRaw) > 0 {
 			runPagespeedRef01Data = core.ToMapAny(runPagespeedRef01DataRaw[0][1])
@@ -103,7 +103,7 @@ func run_pagespeedBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"run_pagespeed01", "run_pagespeed02", "run_pagespeed03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -123,7 +123,7 @@ func run_pagespeedBasicSetup(extra map[string]any) *entityTestSetup {
 		"PAGESPEED_TEST_RUN_PAGESPEED_ENTID": idmap,
 		"PAGESPEED_TEST_LIVE":      "FALSE",
 		"PAGESPEED_TEST_EXPLAIN":   "FALSE",
-		"PAGESPEED_APIKEY":         "NONE",
+		"PAGESPEED_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["PAGESPEED_TEST_RUN_PAGESPEED_ENTID"])
@@ -132,11 +132,23 @@ func run_pagespeedBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["PAGESPEED_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["PAGESPEED_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewPagespeedSDK(core.ToMapAny(mergedOpts))
 	}

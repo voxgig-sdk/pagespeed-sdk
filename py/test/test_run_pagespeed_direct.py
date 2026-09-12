@@ -58,15 +58,18 @@ def _run_pagespeed_direct_setup(mockres):
     env = runner.env_override({
         "PAGESPEED_TEST_RUN_PAGESPEED_ENTID": {},
         "PAGESPEED_TEST_LIVE": "FALSE",
-        "PAGESPEED_APIKEY": "NONE",
+        "PAGESPEED_APIKEY": "",
     })
 
     live = env.get("PAGESPEED_TEST_LIVE") == "TRUE"
 
     if live:
-        merged_opts = {
+        # sdk-test-control.json's test.client.options seeds the live
+        # client; the generated fields below overwrite anything they name.
+        merged_opts = dict(runner.live_client_options())
+        merged_opts.update({
             "apikey": env.get("PAGESPEED_APIKEY"),
-        }
+        })
         client = PagespeedSDK(merged_opts)
         return {
             "client": client,

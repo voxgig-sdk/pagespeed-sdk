@@ -87,6 +87,10 @@ module PagespeedConfig
               "type" => "`$OBJECT`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "run_pagespeed",
           "op" => {
             "load" => {
@@ -145,8 +149,10 @@ module PagespeedConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/runPagespeed",
-                  "parts" => [
-                    "runPagespeed",
+                  "segments" => [
+                    {
+                      "lit" => "runPagespeed",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -163,6 +169,9 @@ module PagespeedConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "runPagespeed",
+                  ],
                 },
               ],
             },

@@ -101,6 +101,10 @@ class PagespeedConfig
               'type' => '`$OBJECT`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'run_pagespeed',
           'op' => [
             'load' => [
@@ -159,8 +163,10 @@ class PagespeedConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/runPagespeed',
-                  'parts' => [
-                    'runPagespeed',
+                  'segments' => [
+                    [
+                      'lit' => 'runPagespeed',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -176,6 +182,9 @@ class PagespeedConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'runPagespeed',
                   ],
                 ],
               ],

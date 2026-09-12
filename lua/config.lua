@@ -75,6 +75,10 @@ local function make_config()
             ["type"] = "`$OBJECT`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "run_pagespeed",
         ["op"] = {
           ["load"] = {
@@ -133,8 +137,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/runPagespeed",
-                ["parts"] = {
-                  "runPagespeed",
+                ["segments"] = {
+                  {
+                    ["lit"] = "runPagespeed",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -150,6 +156,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "runPagespeed",
                 },
               },
             },

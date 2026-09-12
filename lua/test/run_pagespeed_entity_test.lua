@@ -95,7 +95,7 @@ function run_pagespeed_basic_setup(extra)
     ["PAGESPEED_TEST_RUN_PAGESPEED_ENTID"] = idmap,
     ["PAGESPEED_TEST_LIVE"] = "FALSE",
     ["PAGESPEED_TEST_EXPLAIN"] = "FALSE",
-    ["PAGESPEED_APIKEY"] = "NONE",
+    ["PAGESPEED_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -106,6 +106,9 @@ function run_pagespeed_basic_setup(extra)
 
   if env["PAGESPEED_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
+      -- FIRST, so the generated fields below win: sdk-test-control.json's
+      -- test.client.options adds to the live client, it does not redirect it.
+      runner.live_client_options(),
       {
         apikey = env["PAGESPEED_APIKEY"],
       },
