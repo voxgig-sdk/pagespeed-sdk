@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { PagespeedSDK } from '@voxgig-sdk/pagespeed'
+import { PagespeedSDK } from '@voxgig-sdk/pagespeed-sdk'
 
 const client = new PagespeedSDK({
   apikey: process.env.PAGESPEED_APIKEY,
@@ -421,7 +421,7 @@ pagespeed/
 Import the SDK from the package root:
 
 ```ts
-import { PagespeedSDK } from '@voxgig-sdk/pagespeed'
+import { PagespeedSDK } from '@voxgig-sdk/pagespeed-sdk'
 ```
 
 ### Entity state

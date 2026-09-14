@@ -105,7 +105,7 @@ local result, err = client:RunPagespeed():load({ url = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/releases) |
+| TypeScript | `@voxgig-sdk/pagespeed-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/releases) |
 | Python | `voxgig-sdk-pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/releases) |
 | PHP | `voxgig-sdk/pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/pagespeed-sdk/go` | `go get github.com/voxgig-sdk/pagespeed-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:RunPagespeed():load({ url = "example" })
 ### TypeScript
 
 ```ts
-import { PagespeedSDK } from '@voxgig-sdk/pagespeed'
+import { PagespeedSDK } from '@voxgig-sdk/pagespeed-sdk'
 
 const client = new PagespeedSDK({
   apikey: process.env.PAGESPEED_APIKEY,
