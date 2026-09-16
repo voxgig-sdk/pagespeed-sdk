@@ -1,12 +1,18 @@
 # Pagespeed SDK feature factory
 
 from pagespeed_sdk.feature.base_feature import PagespeedBaseFeature
+from pagespeed_sdk.feature.ratelimit_feature import PagespeedRatelimitFeature
+from pagespeed_sdk.feature.retry_feature import PagespeedRetryFeature
 from pagespeed_sdk.feature.test_feature import PagespeedTestFeature
+from pagespeed_sdk.feature.timeout_feature import PagespeedTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: PagespeedBaseFeature(),
+    "ratelimit": lambda: PagespeedRatelimitFeature(),
+    "retry": lambda: PagespeedRetryFeature(),
     "test": lambda: PagespeedTestFeature(),
+    "timeout": lambda: PagespeedTimeoutFeature(),
 }
 
 

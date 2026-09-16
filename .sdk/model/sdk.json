@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "run_pagespeed": {
           "active": true,
@@ -162,6 +226,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /runPagespeed",
+                    "json": "{\"operationId\":\"pagespeedapi.runpagespeed\",\"parameters\":[{\"description\":\"Required. The URL to fetch and analyze\",\"in\":\"query\",\"name\":\"url\",\"required\":true,\"schema\":{\"format\":\"uri\",\"type\":\"string\"}},{\"description\":\"A Lighthouse category to run; if none are given, only Performance category will be run\",\"explode\":true,\"in\":\"query\",\"name\":\"category\",\"required\":false,\"schema\":{\"items\":{\"enum\":[\"ACCESSIBILITY\",\"BEST_PRACTICES\",\"PERFORMANCE\",\"SEO\"],\"type\":\"string\"},\"type\":\"array\"}},{\"description\":\"The locale used to localize formatted results\",\"in\":\"query\",\"name\":\"locale\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The analysis strategy (desktop or mobile) to use, and desktop is the default\",\"in\":\"query\",\"name\":\"strategy\",\"required\":false,\"schema\":{\"default\":\"DESKTOP\",\"enum\":[\"DESKTOP\",\"MOBILE\"],\"type\":\"string\"}},{\"description\":\"Campaign name for analytics\",\"in\":\"query\",\"name\":\"utm_campaign\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Campaign source for analytics\",\"in\":\"query\",\"name\":\"utm_source\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The captcha token passed when filling out a captcha\",\"in\":\"query\",\"name\":\"captchaToken\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"The Pagespeed API response object\",\"properties\":{\"analysisUTCTimestamp\":{\"description\":\"The UTC timestamp of this analysis\",\"type\":\"string\"},\"captchaResult\":{\"description\":\"The captcha verify result\",\"type\":\"string\"},\"id\":{\"description\":\"Canonicalized and final URL for the document, after following page redirects (if any)\",\"type\":\"string\"},\"kind\":{\"description\":\"Kind of result\",\"type\":\"string\"},\"lighthouseResult\":{\"description\":\"The Lighthouse result object\",\"properties\":{\"audits\":{\"additionalProperties\":{\"description\":\"A Lighthouse audit result\",\"properties\":{\"description\":{\"type\":\"string\"},\"displayValue\":{\"type\":\"string\"},\"id\":{\"type\":\"string\"},\"numericUnit\":{\"type\":\"string\"},\"numericValue\":{\"type\":\"number\"},\"score\":{\"nullable\":true,\"type\":\"number\"},\"scoreDisplayMode\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"}},\"type\":\"object\"},\"description\":\"Map of audits in the LHR\",\"type\":\"object\"},\"categories\":{\"description\":\"The categories in a Lighthouse run\",\"properties\":{\"accessibility\":{\"description\":\"A Lighthouse category\",\"properties\":{\"auditRefs\":{\"description\":\"An array of references to all the audit members of this category\",\"items\":{\"description\":\"A light reference to an audit by id, used to group and weight audits in a given category\",\"properties\":{\"group\":{\"description\":\"The category group that the audit belongs to (optional)\",\"type\":\"string\"},\"id\":{\"description\":\"The audit ref id\",\"type\":\"string\"},\"weight\":{\"description\":\"The weight this audit's score has on the overall category score\",\"type\":\"number\"}},\"type\":\"object\"},\"type\":\"array\"},\"description\":{\"description\":\"A more detailed description of the category and its importance\",\"type\":\"string\"},\"id\":{\"description\":\"The string identifier of the category\",\"type\":\"string\"},\"manualDescription\":{\"description\":\"A description for the manual audits in the category\",\"type\":\"string\"},\"score\":{\"description\":\"The overall score of the category, the weighted average of all its audits\",\"nullable\":true,\"type\":\"number\"},\"title\":{\"description\":\"The human-friendly name of the category\",\"type\":\"string\"}},\"type\":\"object\"},\"best-practices\":{\"description\":\"A Lighthouse category\",\"properties\":{\"auditRefs\":{\"description\":\"An array of references to all the audit members of this category\",\"items\":{\"description\":\"A light reference to an audit by id, used to group and weight audits in a given category\",\"properties\":{\"group\":{\"description\":\"The category group that the audit belongs to (optional)\",\"type\":\"string\"},\"id\":{\"description\":\"The audit ref id\",\"type\":\"string\"},\"weight\":{\"description\":\"The weight this audit's score has on the overall category score\",\"type\":\"number\"}},\"type\":\"object\"},\"type\":\"array\"},\"description\":{\"description\":\"A more detailed description of the category and its importance\",\"type\":\"string\"},\"id\":{\"description\":\"The string identifier of the category\",\"type\":\"string\"},\"manualDescription\":{\"description\":\"A description for the manual audits in the category\",\"type\":\"string\"},\"score\":{\"description\":\"The overall score of the category, the weighted average of all its audits\",\"nullable\":true,\"type\":\"number\"},\"title\":{\"description\":\"The human-friendly name of the category\",\"type\":\"string\"}},\"type\":\"object\"},\"performance\":{\"description\":\"A Lighthouse category\",\"properties\":{\"auditRefs\":{\"description\":\"An array of references to all the audit members of this category\",\"items\":{\"description\":\"A light reference to an audit by id, used to group and weight audits in a given category\",\"properties\":{\"group\":{\"description\":\"The category group that the audit belongs to (optional)\",\"type\":\"string\"},\"id\":{\"description\":\"The audit ref id\",\"type\":\"string\"},\"weight\":{\"description\":\"The weight this audit's score has on the overall category score\",\"type\":\"number\"}},\"type\":\"object\"},\"type\":\"array\"},\"description\":{\"description\":\"A more detailed description of the category and its importance\",\"type\":\"string\"},\"id\":{\"description\":\"The string identifier of the category\",\"type\":\"string\"},\"manualDescription\":{\"description\":\"A description for the manual audits in the category\",\"type\":\"string\"},\"score\":{\"description\":\"The overall score of the category, the weighted average of all its audits\",\"nullable\":true,\"type\":\"number\"},\"title\":{\"description\":\"The human-friendly name of the category\",\"type\":\"string\"}},\"type\":\"object\"},\"seo\":{\"description\":\"A Lighthouse category\",\"properties\":{\"auditRefs\":{\"description\":\"An array of references to all the audit members of this category\",\"items\":{\"description\":\"A light reference to an audit by id, used to group and weight audits in a given category\",\"properties\":{\"group\":{\"description\":\"The category group that the audit belongs to (optional)\",\"type\":\"string\"},\"id\":{\"description\":\"The audit ref id\",\"type\":\"string\"},\"weight\":{\"description\":\"The weight this audit's score has on the overall category score\",\"type\":\"number\"}},\"type\":\"object\"},\"type\":\"array\"},\"description\":{\"description\":\"A more detailed description of the category and its importance\",\"type\":\"string\"},\"id\":{\"description\":\"The string identifier of the category\",\"type\":\"string\"},\"manualDescription\":{\"description\":\"A description for the manual audits in the category\",\"type\":\"string\"},\"score\":{\"description\":\"The overall score of the category, the weighted average of all its audits\",\"nullable\":true,\"type\":\"number\"},\"title\":{\"description\":\"The human-friendly name of the category\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"},\"categoryGroups\":{\"additionalProperties\":{\"description\":\"A category group\",\"properties\":{\"description\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"}},\"type\":\"object\"},\"description\":\"Map of category groups in the LHR\",\"type\":\"object\"},\"configSettings\":{\"description\":\"Message containing the configuration settings for the Lighthouse run\",\"properties\":{\"channel\":{\"description\":\"How Lighthouse was run, e.g. from the Chrome extension or from the npm module\",\"type\":\"string\"},\"emulatedFormFactor\":{\"deprecated\":true,\"description\":\"The form factor the emulation should use (deprecated, use formFactor instead)\",\"type\":\"string\"},\"formFactor\":{\"description\":\"How Lighthouse should interpret this run in regards to scoring performance metrics and skipping mobile-only tests in desktop\",\"type\":\"string\"},\"locale\":{\"description\":\"The locale setting\",\"type\":\"string\"},\"onlyCategories\":{\"description\":\"List of categories of audits the run should conduct\",\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"},\"environment\":{\"description\":\"Message containing environment configuration for a Lighthouse run\",\"properties\":{\"benchmarkIndex\":{\"description\":\"The benchmark index number that indicates rough device class\",\"type\":\"number\"},\"hostUserAgent\":{\"description\":\"The user agent string of the version of Chrome used\",\"type\":\"string\"},\"networkUserAgent\":{\"description\":\"The user agent string that was sent over the network\",\"type\":\"string\"}},\"type\":\"object\"},\"fetchTime\":{\"description\":\"The time that this run was fetched\",\"type\":\"string\"},\"finalUrl\":{\"description\":\"The final resolved url that was audited\",\"type\":\"string\"},\"i18n\":{\"description\":\"Message containing the i18n data for the LHR\",\"properties\":{\"rendererFormattedStrings\":{\"description\":\"Message holding the formatted strings used in the renderer\",\"properties\":{\"auditGroupExpandTooltip\":{\"description\":\"The tooltip text on an expandable chevron icon\",\"type\":\"string\"},\"crcInitialNavigation\":{\"description\":\"The label for the initial request in a critical request chain\",\"type\":\"string\"},\"crcLongestDurationLabel\":{\"description\":\"The label for values shown in the summary of critical request chains\",\"type\":\"string\"},\"errorLabel\":{\"description\":\"The label shown next to an audit or metric that has had an error\",\"type\":\"string\"},\"errorMissingAuditInfo\":{\"description\":\"The error string shown next to an erroring audit\",\"type\":\"string\"},\"labDataTitle\":{\"description\":\"The title of the lab data performance category\",\"type\":\"string\"},\"lsPerformanceCategoryDescription\":{\"description\":\"The disclaimer shown under performance explaining that the network can vary\",\"type\":\"string\"},\"manualAuditsGroupTitle\":{\"description\":\"The heading shown above a list of audits that were not computed in the run\",\"type\":\"string\"},\"notApplicableAuditsGroupTitle\":{\"description\":\"The heading shown above a list of audits that do not apply to a page\",\"type\":\"string\"},\"opportunityResourceColumnLabel\":{\"description\":\"The heading for the estimated page load savings opportunity of an audit\",\"type\":\"string\"},\"opportunitySavingsColumnLabel\":{\"description\":\"The heading for the estimated page load savings of opportunity audits\",\"type\":\"string\"},\"passedAuditsGroupTitle\":{\"description\":\"The heading that is shown above a list of audits that are passing\",\"type\":\"string\"},\"scorescaleLabel\":{\"description\":\"The label that explains the score gauges scale (0-49, 50-89, 90-100)\",\"type\":\"string\"},\"toplevelWarningsMessage\":{\"description\":\"The label shown preceding important warnings that may have invalidated an entire report\",\"type\":\"string\"},\"varianceDisclaimer\":{\"description\":\"The disclaimer shown below a performance metric value\",\"type\":\"string\"},\"warningHeader\":{\"description\":\"The label shown above a bulleted list of warnings\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"},\"lighthouseVersion\":{\"description\":\"The lighthouse version that was used to generate this LHR\",\"type\":\"string\"},\"requestedUrl\":{\"description\":\"The original requested url\",\"type\":\"string\"},\"runWarnings\":{\"description\":\"List of all run warnings in the LHR\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"runtimeError\":{\"description\":\"Message containing a runtime error config\",\"properties\":{\"code\":{\"description\":\"The enumerated Lighthouse Error code\",\"type\":\"string\"},\"message\":{\"description\":\"A human readable message explaining the error code\",\"type\":\"string\"}},\"type\":\"object\"},\"stackPacks\":{\"description\":\"The Stack Pack advice strings\",\"items\":{\"description\":\"Message containing Stack Pack information\",\"properties\":{\"descriptions\":{\"additionalProperties\":{\"type\":\"string\"},\"description\":\"The stack pack advice strings\",\"type\":\"object\"},\"iconDataURL\":{\"description\":\"The stack pack icon data uri\",\"type\":\"string\"},\"id\":{\"description\":\"The stack pack id\",\"type\":\"string\"},\"title\":{\"description\":\"The stack pack title\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"timing\":{\"description\":\"Message containing the performance timing data for the Lighthouse run\",\"properties\":{\"total\":{\"description\":\"The total duration of Lighthouse's run\",\"type\":\"number\"}},\"type\":\"object\"},\"userAgent\":{\"description\":\"The user agent that was used to run this LHR\",\"type\":\"string\"}},\"type\":\"object\"},\"loadingExperience\":{\"description\":\"The CrUX loading experience object that contains CrUX data breakdowns\",\"properties\":{\"id\":{\"description\":\"The url, pattern or origin which the metrics are on\",\"type\":\"string\"},\"initial_url\":{\"description\":\"The requested URL, which may differ from the resolved id\",\"type\":\"string\"},\"metrics\":{\"additionalProperties\":{\"description\":\"User page load metric data\",\"properties\":{\"category\":{\"type\":\"string\"},\"distributions\":{\"items\":{\"properties\":{\"max\":{\"type\":\"number\"},\"min\":{\"type\":\"number\"},\"proportion\":{\"type\":\"number\"}},\"type\":\"object\"},\"type\":\"array\"},\"percentile\":{\"description\":\"Percentile value for the metric\",\"type\":\"number\"}},\"type\":\"object\"},\"description\":\"The map of metrics and data\",\"type\":\"object\"},\"origin_fallback\":{\"description\":\"True if the result is an origin fallback from a page, false otherwise\",\"type\":\"boolean\"},\"overall_category\":{\"description\":\"The human readable speed category of the id\",\"type\":\"string\"}},\"type\":\"object\"},\"originLoadingExperience\":{\"description\":\"The CrUX loading experience object that contains CrUX data breakdowns\",\"properties\":{\"id\":{\"description\":\"The url, pattern or origin which the metrics are on\",\"type\":\"string\"},\"initial_url\":{\"description\":\"The requested URL, which may differ from the resolved id\",\"type\":\"string\"},\"metrics\":{\"additionalProperties\":{\"description\":\"User page load metric data\",\"properties\":{\"category\":{\"type\":\"string\"},\"distributions\":{\"items\":{\"properties\":{\"max\":{\"type\":\"number\"},\"min\":{\"type\":\"number\"},\"proportion\":{\"type\":\"number\"}},\"type\":\"object\"},\"type\":\"array\"},\"percentile\":{\"description\":\"Percentile value for the metric\",\"type\":\"number\"}},\"type\":\"object\"},\"description\":\"The map of metrics and data\",\"type\":\"object\"},\"origin_fallback\":{\"description\":\"True if the result is an origin fallback from a page, false otherwise\",\"type\":\"boolean\"},\"overall_category\":{\"description\":\"The human readable speed category of the id\",\"type\":\"string\"}},\"type\":\"object\"},\"version\":{\"description\":\"The Pagespeed Version object\",\"properties\":{\"major\":{\"description\":\"The major version number of PageSpeed used to generate these results\",\"type\":\"string\"},\"minor\":{\"description\":\"The minor version number of PageSpeed used to generate these results\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with PageSpeed analysis results\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"401\":{\"description\":\"Unauthorized - authentication required\"},\"403\":{\"description\":\"Forbidden - insufficient permissions\"},\"500\":{\"description\":\"Internal server error\"}},\"security\":[{\"oauth2\":[\"openid\"]},{\"apiKey\":[]}],\"securitySchemes\":{\"apiKey\":{\"description\":\"API key for authentication\",\"in\":\"query\",\"name\":\"key\",\"type\":\"apiKey\"},\"oauth2\":{\"description\":\"OAuth 2.0 authentication\",\"flows\":{\"authorizationCode\":{\"authorizationUrl\":\"https://accounts.google.com/o/oauth2/auth\",\"scopes\":{\"openid\":\"OpenID Connect scope\"},\"tokenUrl\":\"https://oauth2.googleapis.com/token\"},\"implicit\":{\"authorizationUrl\":\"https://accounts.google.com/o/oauth2/auth\",\"scopes\":{\"openid\":\"OpenID Connect scope\"}}},\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/runPagespeed",
@@ -195,13 +265,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -292,6 +572,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -352,6 +728,48 @@
         "website": "https://pagespeedonline.googleapis.com"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -906,6 +1324,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -947,7 +1366,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

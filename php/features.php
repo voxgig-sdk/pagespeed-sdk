@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Pagespeed SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class PagespeedFeatures
@@ -14,8 +17,14 @@ class PagespeedFeatures
         switch ($name) {
             case "base":
                 return new PagespeedBaseFeature();
+            case "ratelimit":
+                return new PagespeedRatelimitFeature();
+            case "retry":
+                return new PagespeedRetryFeature();
             case "test":
                 return new PagespeedTestFeature();
+            case "timeout":
+                return new PagespeedTimeoutFeature();
             default:
                 return new PagespeedBaseFeature();
         }
@@ -31,7 +40,10 @@ class PagespeedFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
