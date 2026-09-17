@@ -105,12 +105,12 @@ local result, err = client:RunPagespeed():load({ url = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/pagespeed-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/releases) |
-| Python | `voxgig-sdk-pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/releases) |
-| PHP | `voxgig-sdk/pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/releases) |
+| TypeScript | `@voxgig-sdk/pagespeed-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/tags) |
+| Python | `voxgig-sdk-pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/tags) |
+| PHP | `voxgig-sdk/pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/pagespeed-sdk/go` | `go get github.com/voxgig-sdk/pagespeed-sdk/go@latest` |
-| Ruby | `voxgig-sdk-pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/releases) |
-| Lua | `voxgig-sdk-pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/releases) |
+| Ruby | `voxgig-sdk-pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/tags) |
+| Lua | `voxgig-sdk-pagespeed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pagespeed-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/pagespeed-sdk/go-cli` | `go install github.com/voxgig-sdk/pagespeed-sdk/go-cli/cmd/pagespeed@latest` |
 | Go MCP server | `github.com/voxgig-sdk/pagespeed-sdk/go-mcp` | `go get github.com/voxgig-sdk/pagespeed-sdk/go-mcp@latest` |
 

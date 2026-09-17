@@ -131,9 +131,9 @@ class Config {
 
     entity: {
       
-      run_pagespeed: {
-      },
-
+        run_pagespeed: {
+        },
+  
     }
   }
 
