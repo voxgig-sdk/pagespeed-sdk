@@ -102,43 +102,51 @@ module PagespeedConfig
           "fields" => [
             {
               "name" => "analysisUTCTimestamp",
-              "short" => "The UTC timestamp of this analysis",
+              "title" => "Analysis Utc Timestamp",
               "type" => "`$STRING`",
+              "short" => "The UTC timestamp of this analysis",
             },
             {
               "name" => "captchaResult",
-              "short" => "The captcha verify result",
+              "title" => "Captcha Result",
               "type" => "`$STRING`",
+              "short" => "The captcha verify result",
             },
             {
               "name" => "id",
-              "short" => "Canonicalized and final URL for the document, after following page redirects (if any)",
+              "title" => "Id",
               "type" => "`$STRING`",
+              "short" => "Canonicalized and final URL for the document, after following page redirects (if any)",
             },
             {
               "name" => "kind",
-              "short" => "Kind of result",
+              "title" => "Kind",
               "type" => "`$STRING`",
+              "short" => "Kind of result",
             },
             {
               "name" => "lighthouseResult",
-              "short" => "The Lighthouse result object",
+              "title" => "Lighthouse Result",
               "type" => "`$OBJECT`",
+              "short" => "The Lighthouse result object",
             },
             {
               "name" => "loadingExperience",
-              "short" => "The CrUX loading experience object that contains CrUX data breakdowns",
+              "title" => "Loading Experience",
               "type" => "`$OBJECT`",
+              "short" => "The CrUX loading experience object that contains CrUX data breakdowns",
             },
             {
               "name" => "originLoadingExperience",
-              "short" => "The CrUX loading experience object that contains CrUX data breakdowns",
+              "title" => "Origin Loading Experience",
               "type" => "`$OBJECT`",
+              "short" => "The CrUX loading experience object that contains CrUX data breakdowns",
             },
             {
               "name" => "version",
-              "short" => "The Pagespeed Version object",
+              "title" => "Version",
               "type" => "`$OBJECT`",
+              "short" => "The Pagespeed Version object",
             },
           ],
           "id" => {
@@ -152,54 +160,6 @@ module PagespeedConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "captcha_token",
-                        "orig" => "captcha_token",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "category",
-                        "orig" => "category",
-                        "type" => "`$ARRAY`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "locale",
-                        "orig" => "locale",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => "DESKTOP",
-                        "kind" => "query",
-                        "name" => "strategy",
-                        "orig" => "strategy",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "url",
-                        "orig" => "url",
-                        "reqd" => true,
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "utm_campaign",
-                        "orig" => "utm_campaign",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "utm_source",
-                        "orig" => "utm_source",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/runPagespeed",
@@ -208,6 +168,62 @@ module PagespeedConfig
                       "lit" => "runPagespeed",
                     },
                   ],
+                  "parts" => [
+                    "runPagespeed",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "captcha_token",
+                        "orig" => "captcha_token",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "category",
+                        "orig" => "category",
+                        "type" => "`$ARRAY`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "locale",
+                        "orig" => "locale",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "strategy",
+                        "orig" => "strategy",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "DESKTOP",
+                      },
+                      {
+                        "name" => "url",
+                        "orig" => "url",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "reqd" => true,
+                      },
+                      {
+                        "name" => "utm_campaign",
+                        "orig" => "utm_campaign",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "utm_source",
+                        "orig" => "utm_source",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "captcha_token",
@@ -219,13 +235,6 @@ module PagespeedConfig
                       "utm_source",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "runPagespeed",
-                  ],
                 },
               ],
             },

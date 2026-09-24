@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -117,43 +110,51 @@ class Config {
             "fields": [
                 {
                     "name": "analysisUTCTimestamp",
-                    "short": "The UTC timestamp of this analysis",
-                    "type": "`$STRING`"
+                    "title": "Analysis Utc Timestamp",
+                    "type": "`$STRING`",
+                    "short": "The UTC timestamp of this analysis"
                 },
                 {
                     "name": "captchaResult",
-                    "short": "The captcha verify result",
-                    "type": "`$STRING`"
+                    "title": "Captcha Result",
+                    "type": "`$STRING`",
+                    "short": "The captcha verify result"
                 },
                 {
                     "name": "id",
-                    "short": "Canonicalized and final URL for the document, after following page redirects (if any)",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Canonicalized and final URL for the document, after following page redirects (if any)"
                 },
                 {
                     "name": "kind",
-                    "short": "Kind of result",
-                    "type": "`$STRING`"
+                    "title": "Kind",
+                    "type": "`$STRING`",
+                    "short": "Kind of result"
                 },
                 {
                     "name": "lighthouseResult",
-                    "short": "The Lighthouse result object",
-                    "type": "`$OBJECT`"
+                    "title": "Lighthouse Result",
+                    "type": "`$OBJECT`",
+                    "short": "The Lighthouse result object"
                 },
                 {
                     "name": "loadingExperience",
-                    "short": "The CrUX loading experience object that contains CrUX data breakdowns",
-                    "type": "`$OBJECT`"
+                    "title": "Loading Experience",
+                    "type": "`$OBJECT`",
+                    "short": "The CrUX loading experience object that contains CrUX data breakdowns"
                 },
                 {
                     "name": "originLoadingExperience",
-                    "short": "The CrUX loading experience object that contains CrUX data breakdowns",
-                    "type": "`$OBJECT`"
+                    "title": "Origin Loading Experience",
+                    "type": "`$OBJECT`",
+                    "short": "The CrUX loading experience object that contains CrUX data breakdowns"
                 },
                 {
                     "name": "version",
-                    "short": "The Pagespeed Version object",
-                    "type": "`$OBJECT`"
+                    "title": "Version",
+                    "type": "`$OBJECT`",
+                    "short": "The Pagespeed Version object"
                 }
             ],
             "id": {
@@ -167,54 +168,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "captcha_token",
-                                        "orig": "captcha_token",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "category",
-                                        "orig": "category",
-                                        "type": "`$ARRAY`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "locale",
-                                        "orig": "locale",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "DESKTOP",
-                                        "kind": "query",
-                                        "name": "strategy",
-                                        "orig": "strategy",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "url",
-                                        "orig": "url",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "utm_campaign",
-                                        "orig": "utm_campaign",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "utm_source",
-                                        "orig": "utm_source",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/runPagespeed",
@@ -223,6 +176,62 @@ class Config {
                                     "lit": "runPagespeed"
                                 }
                             ],
+                            "parts": [
+                                "runPagespeed"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "captcha_token",
+                                        "orig": "captcha_token",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "category",
+                                        "orig": "category",
+                                        "type": "`$ARRAY`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "locale",
+                                        "orig": "locale",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "strategy",
+                                        "orig": "strategy",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "DESKTOP"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "orig": "url",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true
+                                    },
+                                    {
+                                        "name": "utm_campaign",
+                                        "orig": "utm_campaign",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "utm_source",
+                                        "orig": "utm_source",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "captcha_token",
@@ -233,14 +242,7 @@ class Config {
                                     "utm_campaign",
                                     "utm_source"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "runPagespeed"
-                            ]
+                            }
                         }
                     ]
                 }

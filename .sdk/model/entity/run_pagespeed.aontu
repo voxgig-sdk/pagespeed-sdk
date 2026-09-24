@@ -1,0 +1,165 @@
+# Entity: run_pagespeed
+
+main: kit: entity: run_pagespeed: {
+
+  alias: field: {}
+
+  fields: {
+    analysisUTCTimestamp: {
+      h: "Analysis Utc Timestamp"
+      n: "analysisUTCTimestamp"
+      r: false
+      sh: "The UTC timestamp of this analysis"
+      t: "`$STRING`"
+    }
+    captchaResult: {
+      h: "Captcha Result"
+      n: "captchaResult"
+      r: false
+      sh: "The captcha verify result"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Canonicalized and final URL for the document, after following page redirects (if any)"
+      t: "`$STRING`"
+    }
+    kind: {
+      h: "Kind"
+      n: "kind"
+      r: false
+      sh: "Kind of result"
+      t: "`$STRING`"
+    }
+    lighthouseResult: {
+      h: "Lighthouse Result"
+      n: "lighthouseResult"
+      r: false
+      sh: "The Lighthouse result object"
+      t: "`$OBJECT`"
+    }
+    loadingExperience: {
+      h: "Loading Experience"
+      n: "loadingExperience"
+      r: false
+      sh: "The CrUX loading experience object that contains CrUX data breakdowns"
+      t: "`$OBJECT`"
+    }
+    originLoadingExperience: {
+      h: "Origin Loading Experience"
+      n: "originLoadingExperience"
+      r: false
+      sh: "The CrUX loading experience object that contains CrUX data breakdowns"
+      t: "`$OBJECT`"
+    }
+    version: {
+      h: "Version"
+      n: "version"
+      r: false
+      sh: "The Pagespeed Version object"
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "run_pagespeed"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /runPagespeed"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "captcha_token"
+                or: "captcha_token"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "category"
+                or: "category"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "locale"
+                or: "locale"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "DESKTOP"
+                k: "query"
+                n: "strategy"
+                or: "strategy"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "url"
+                or: "url"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "utm_campaign"
+                or: "utm_campaign"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "utm_source"
+                or: "utm_source"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/runPagespeed"
+          q: {
+            exist: [
+              "captcha_token"
+              "category"
+              "locale"
+              "strategy"
+              "url"
+              "utm_campaign"
+              "utm_source"
+            ]
+          }
+          s: [
+            {
+              lit: "runPagespeed"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

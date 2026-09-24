@@ -1,7 +1,7 @@
 // Typed models for the Pagespeed SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,14 +14,6 @@ import (
 
 // RunPagespeed is the typed data model for the run_pagespeed entity.
 type RunPagespeed struct {
-	AnalysisUTCTimestamp *string `json:"analysisUTCTimestamp,omitempty"`
-	CaptchaResult *string `json:"captchaResult,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Kind *string `json:"kind,omitempty"`
-	LighthouseResult *map[string]any `json:"lighthouseResult,omitempty"`
-	LoadingExperience *map[string]any `json:"loadingExperience,omitempty"`
-	OriginLoadingExperience *map[string]any `json:"originLoadingExperience,omitempty"`
-	Version *map[string]any `json:"version,omitempty"`
 }
 
 // RunPagespeedLoadMatch is the typed request payload for RunPagespeed.LoadTyped.

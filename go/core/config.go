@@ -94,43 +94,51 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "analysisUTCTimestamp",
-						"short": "The UTC timestamp of this analysis",
+						"title": "Analysis Utc Timestamp",
 						"type": "`$STRING`",
+						"short": "The UTC timestamp of this analysis",
 					},
 					map[string]any{
 						"name": "captchaResult",
-						"short": "The captcha verify result",
+						"title": "Captcha Result",
 						"type": "`$STRING`",
+						"short": "The captcha verify result",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Canonicalized and final URL for the document, after following page redirects (if any)",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Canonicalized and final URL for the document, after following page redirects (if any)",
 					},
 					map[string]any{
 						"name": "kind",
-						"short": "Kind of result",
+						"title": "Kind",
 						"type": "`$STRING`",
+						"short": "Kind of result",
 					},
 					map[string]any{
 						"name": "lighthouseResult",
-						"short": "The Lighthouse result object",
+						"title": "Lighthouse Result",
 						"type": "`$OBJECT`",
+						"short": "The Lighthouse result object",
 					},
 					map[string]any{
 						"name": "loadingExperience",
-						"short": "The CrUX loading experience object that contains CrUX data breakdowns",
+						"title": "Loading Experience",
 						"type": "`$OBJECT`",
+						"short": "The CrUX loading experience object that contains CrUX data breakdowns",
 					},
 					map[string]any{
 						"name": "originLoadingExperience",
-						"short": "The CrUX loading experience object that contains CrUX data breakdowns",
+						"title": "Origin Loading Experience",
 						"type": "`$OBJECT`",
+						"short": "The CrUX loading experience object that contains CrUX data breakdowns",
 					},
 					map[string]any{
 						"name": "version",
-						"short": "The Pagespeed Version object",
+						"title": "Version",
 						"type": "`$OBJECT`",
+						"short": "The Pagespeed Version object",
 					},
 				},
 				"id": map[string]any{
@@ -144,60 +152,68 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "captcha_token",
-											"orig": "captcha_token",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "category",
-											"orig": "category",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "locale",
-											"orig": "locale",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "DESKTOP",
-											"kind": "query",
-											"name": "strategy",
-											"orig": "strategy",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "url",
-											"orig": "url",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "utm_campaign",
-											"orig": "utm_campaign",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "utm_source",
-											"orig": "utm_source",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/runPagespeed",
 								"segments": []any{
 									map[string]any{
 										"lit": "runPagespeed",
+									},
+								},
+								"parts": []any{
+									"runPagespeed",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "captcha_token",
+											"orig": "captcha_token",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "category",
+											"orig": "category",
+											"type": "`$ARRAY`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "locale",
+											"orig": "locale",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "strategy",
+											"orig": "strategy",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "DESKTOP",
+										},
+										map[string]any{
+											"name": "url",
+											"orig": "url",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "utm_campaign",
+											"orig": "utm_campaign",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "utm_source",
+											"orig": "utm_source",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -210,13 +226,6 @@ func MakeConfig() map[string]any {
 										"utm_campaign",
 										"utm_source",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"runPagespeed",
 								},
 							},
 						},
